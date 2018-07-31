@@ -1,0 +1,17 @@
+
+
+.navs-ooo .ivu-badge-count {
+	top:-15px;
+	right: -8px;
+	display: none;
+}
+.navs-ooo:nth-child(5) .ivu-badge-count {
+	display: block;
+}
+.per_bottom .ivu-progress {
+	width: 130px;
+}
+.member-cation .ivu-icon-ios-arrow-down:before {
+    content: "\f116";
+    font-size: 16px;
+}
