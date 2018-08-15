@@ -1,0 +1,58 @@
+
+
+.navs-ooo .ivu-badge-count {
+	top:-15px;
+	right: -8px;
+	display: none;
+}
+.navs-ooo:nth-child(5) .ivu-badge-count {
+	display: block;
+}
+.per_bottom .ivu-progress {
+	width: 130px;
+}
+.member-cation .ivu-icon-ios-arrow-down:before {
+    content: "\f116";
+    font-size: 16px;
+}
+.refund .ivu-radio-wrapper {
+	margin-bottom: 10px;
+}
+.refund .ivu-radio-checked .ivu-radio-inner {
+	border-color: #e60012;
+}
+.refund .ivu-radio-checked:hover .ivu-radio-inner {
+	border-color: #e60012;
+}
+.refund .ivu-radio-inner:after {
+	background-color: #e60012;
+}
+.refunds-reasons .ivu-icon {
+	margin-left: -20px;
+	float: left;
+	margin-top: 12px;
+}
+.barter-reasons .ivu-icon {
+	margin-left: -20px;
+	float: left;
+	margin-top: 12px;
+}
+.logisticss .ivu-icon {
+	float: right;
+	margin: 7px 10px;
+}
+.return-way .ivu-icon {
+	float: right;
+	margin: 7px 10px;
+}
+.right-cent .ivu-checkbox-wrapper {
+	float: left;
+	width: 55px;
+	margin-right: 0px;
+	padding-left: 5px;
+}
+.password-cent .ivu-btn-primary {
+	width: 80px;
+	background-color: #e60012;
+	border-color: #e60012;
+}
