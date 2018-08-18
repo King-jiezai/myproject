@@ -1,0 +1,176 @@
+.wrapper {
+	margin: 0 auto;
+	margin-top: 5px;
+	width: 96%;
+	height: 100%;
+}
+.wrapper .layui-tab-title {
+	background: #F1F1F1;
+}
+.wrapper .layui-tab , .layui-table-box, .layui-table-view{
+	background: #fff;
+}
+.wrapper .layui-tab-brief>.layui-tab-title .layui-this {
+	color: #000000;
+}
+.wrapper .layui-tab-brief>.layui-tab-more li.layui-this:after, .layui-tab-brief>.layui-tab-title .layui-this:after{
+	border-bottom: 2px solid #e60012!important;
+}
+.wrapper .layui-tab-content {
+	height: 100%;
+	margin-top: 20px;
+	background: #F1F1F1;
+	padding:0 ;
+}
+.wrapper .layui-tab-title li {
+	margin:0 20px;
+	padding: 0px!important;
+}
+.layui-tab-content .layui-tab-title li:last-child {
+	margin-left: 60px;
+}
+.layui-tab-content .layui-tab-title li {
+	margin: 0;
+}
+.layui-tab-content .layui-tab-title {
+	width: 100%;
+	margin: 0 auto;
+	padding-left: 20px;
+}
+.wrapper .layui-show {
+	height: 100%;
+}
+.wrapper .layui-form {
+	height: 100%;
+}
+.currentState {
+	width: 96%;
+	height: 30px;
+	line-height: 30px;
+	padding-left: 50px;
+	padding-top: 30px;
+}
+.currentState p {
+	float: left;
+}
+.currentState .layui-input-block {
+	min-height: 30px;
+}
+.currentState .layui-form-switch {
+	margin-top: 0;
+	min-width: 50px;
+}
+.evaluationModel {
+	height: 130px;
+	margin-top: 50px;
+	padding-left: 50px;
+}
+.evaluationModel .evaluation {
+	float: left;
+	line-height: 130px;
+}
+.immediateEvaluation {
+	float: left;
+	height: 130px;
+	width: 400px;
+	margin-left: 20px;
+	border: 1px solid #CCCCCC;
+	text-align:center;
+	position: relative;
+	cursor: pointer;
+}
+.immediateEvaluation p:first-child {
+	margin-top: 45px;
+}
+.immediateEvaluation img {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+.fixedTime {
+	float: left;
+	height: 130px;
+	width: 400px;
+	margin-left: 60px;
+	border: 1px solid #CCCCCC;
+	text-align:center;
+	position: relative;
+	cursor: pointer;
+}
+.fixedTime p:first-child {
+	margin-top: 45px;
+}
+.fixedTime img {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+.evaluationContent {
+	width: 96%;
+	height: 1000px;
+	margin-top: 50px;
+	padding-left: 50px;
+}
+.evaluationContent .setSpan {
+	float: left;
+}
+.setContent {
+	float: left;
+	width: 90%;
+	overflow: hidden;
+}
+.setContent p{
+	margin-left: 20px;
+}
+.setContent span {
+	color: #94d2fe;
+	margin-left: 20px;
+	cursor: pointer;
+}
+.evaluationText {
+	width: 100%;
+	height: 100%;	
+}
+.evaluationText .layui-input-block {
+	width: 100%;
+	padding-left: 0px!important;
+	margin: 0;
+}
+#confInput {
+	width: 98%;
+	margin: 0;
+	padding: 30px 0 0 20px;
+}
+#confInput .layui-textarea {
+	width: 100%;
+}
+.evaluationText .layui-textarea {
+	width: 100%;
+	height: 150px;
+	border: 1px solid #CCCCCC;
+}
+.setContent .layui-form-item {
+	margin-bottom: 0px;
+}
+.layui-form-item .layui-input-block {
+	padding-left: 20px;
+	margin: 0px;
+}
+.setContent .layui-input-block span {
+	margin-left: 10px;
+	padding: 0;
+}
+.preservation {
+	float: left;
+	width: 100px;
+	height: 30px;
+	background: #E60012;
+	color: #fff;
+	line-height: 30px;
+	text-align: center;
+	border-radius: 5px;
+	margin:100px 740px ;
+}
+.layui-table-cell {
+	text-align: center;
+}

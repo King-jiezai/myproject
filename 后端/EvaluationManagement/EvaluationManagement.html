@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/EvaluationManagement.css" />
+		<link rel="stylesheet" type="text/css" href="../../layui/css/layui.css" />
+		<script type="text/javascript" src="../../layui/layui.js"></script>
+		<script type="text/javascript" src="js/EvaluationManagement.js" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div class="wrapper">
+			<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+				<ul class="layui-tab-title">
+					<li class="layui-this">评价管理</li>
+					<li>评价设置</li>
+					<li>黑名单</li>
+				</ul>
+				<div class="layui-tab-content">
+					<div class="layui-tab-item layui-show">内容不一样是要有，因为你可以监听tab事件（阅读下文档就是了）</div>
+					<div class="layui-tab-item">
+						<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+							<ul class="layui-tab-title">
+								<li class="layui-this">自动评价设置</li>
+								<li>评价记录</li>
+							</ul>
+							<div class="layui-tab-content">
+								<div class="layui-tab-item layui-show">
+									<form class="layui-form" action="">
+										<div class="currentState">
+											<p>当前状态：</p>
+											<div class="layui-input-block">
+												<input type="checkbox" name="close" lay-skin="switch">
+											</div>
+										</div>
+										<div class="evaluationModel">
+											<p class="evaluation">设置评价模式：</p>
+											<div class="immediateEvaluation" onclick="changetext()" id="imEv">
+												<p id="imP">立即评</p>
+												<p>买家确认收货后立即评价</p>
+												<div id="evImg" style="display:none;">
+													<img src="../../img/1.png" />
+												</div>
+											</div>
+											<div class="fixedTime" onclick="changetexts()" id="fiTi">
+												<p id="fiP">固定时间评</p>
+												<p>不管买家何时评价，统一在确认收货后7天23时评</p>
+												<div id="fiImg" style="display:none;">
+													<img src="../../img/1.png" />
+												</div>
+											</div>
+										</div>
+
+										<div class="evaluationContent">
+											<span class="setSpan">设置评价内容：</span>
+											<div class="setContent">
+												<p>最多设置4条，随机评价<span onclick="addElementDiv()">增加一条评价内容</span></p>
+												<div class="evaluationText" id="evaTexta">
+													<div class="layui-form-item layui-form-text" id="confInput">
+														<div class="layui-input-block">
+															<textarea placeholder="请输入内容" class="layui-textarea" style="resize:none"></textarea>
+														</div>
+													</div>
+												</div>
+												<div class="layui-form-item">
+													<div class="layui-input-block">
+														<input type="checkbox" name="like1[write]" lay-skin="primary" title="黑名单买家的订单不再评价">
+													</div>
+												</div>
+											</div>
+											<div class="preservation">
+												<span>保存并开始</span>
+											</div>
+										</div>
+										
+									</form>
+								</div>
+								<div class="layui-tab-item">
+								<table class="layui-hide" id="test"></table>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="layui-tab-item">内容3</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>
