@@ -1,0 +1,38 @@
+.wrapper{
+	padding: 10px 10px;
+}
+.curpoi{
+	cursor: pointer;
+}
+.layui-form-item{
+	float: left;
+	margin-left: -110px;
+	width: 260px;
+}
+.layui-btn-group{
+	float: left;
+	margin-left: 10px;
+}
+.Input{
+	float: right;
+	height: 38px;
+}
+.Input input{
+	width: 180px;
+	height: 36px;
+	background: #f5f5f5;
+	border: transparent solid 1px;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 2px;
+}
+.Input span{
+	padding: 10.5px 10px;
+	margin-left: -4px;
+	background: #009AFF;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+.Input i{
+	color: #FFFFFF;
+	font-size: 23px;
+}

@@ -1,0 +1,318 @@
+.wrapper{
+	margin: 0 auto;
+	width: 95%;
+}
+.submit{
+	float: right;
+}
+.curpoi{
+	cursor: pointer;
+}
+/* 基本信息 */
+.esIn{
+	width: 100%;
+	height: 480px;
+}
+/* 基本信息
+ * 左边
+ *  */
+.lf{
+	float: left;
+	width: 58%;
+	min-width: 665px;
+	height: 480px;
+}
+.prTy{
+	margin-top: 30px;
+	width: 100%;
+	min-width: 640px;
+	height: 60px;
+	line-height: 60px;
+}
+.title{
+	float: left;
+	padding-left: 10px;
+	font-size: 14px;
+	color: #555555;
+}
+.prtyOp{
+	float: right;
+	width: 85%;
+	min-width: 560px;
+	height: 58px;
+	border: #e6e6e6 solid 1px;
+	border-radius: 5px;
+}
+.prtyOp .layui-input-block{
+	margin-top: -5px;
+	margin-left: 10px;
+}
+/* 商品名称 */
+.coNa{
+	margin-top: 30px;
+	width: 100%;
+	min-width: 640px;
+	height: 33px;
+	line-height: 33px;
+}
+.conaInput{
+	float: right;
+	width: 85%;
+	min-width: 560px;
+	height: 33px;
+	border: #e6e6e6 solid 1px;
+	border-radius: 5px;
+	background: #f1f1f1;
+}
+.conaInput input{
+	margin-left: 1%;
+	width: 98%;
+	height: 31px;
+	border: transparent solid 1px;
+	background: #f1f1f1;
+}
+/* 产品分类 */
+.prCl{
+	margin-top: 30px;
+	width: 100%;
+	min-width: 640px;
+	height: 40px;
+	line-height: 40px;
+}
+.prclOp{
+	float: right;
+	width: 85%;
+	min-width: 560px;
+	border-radius: 5px;
+}
+.prclopLf{
+	float: left;
+	width: 50%;
+	min-width: 320px;
+	height: 40px;
+}
+.prclopLf .layui-input-block{
+	margin-left: 0px;
+}
+.prclopRg{
+	float: right;
+	margin-right: 28%;
+	width: 80px;
+	height: 37px;
+	line-height: 37px;
+	text-align: center;
+	border: #e6e6e6 solid 1px;
+	border-radius: 5px;
+	background: #f1f1f1;
+}
+/* 商品简介 */
+.coIn{
+	margin-top: 30px;
+	width: 100%;
+	min-width: 640px;
+	height: 190px;
+	line-height: 40px;
+}
+.coinInput{
+	float: right;
+	width: 85%;
+	min-width: 560px;
+	height: 190px;
+	border: #e6e6e6 solid 1px;
+	border-radius: 5px;
+	background: #f1f1f1;
+}
+/* 基本信息
+ * 右边
+ *  */
+.rg{
+	float: right;
+	width: 41%;
+	min-width: 470px;
+	height: 480px;
+}
+/* 商品主图 */
+.comaDi{
+	width: 100%;
+	height: 200px;
+	margin-top: 20px;
+}
+.rgtitle{
+	float: left;
+	padding-left: 10px;
+	font-size: 14px;
+	color: #555555;
+	line-height: 60px;
+}
+.comadiImg{
+	float: right;
+	width: 80%;
+	height: 200px;
+}
+#demo2 img{
+	width: 80px;
+	height: 80px;
+}
+/* 商品状态 */
+.coSt{
+	margin-top: 15px;
+	width: 100%;
+	min-width: 240px;
+	height: 60px;
+	line-height: 60px;
+}
+.costOp{
+	float: right;
+	width: 80%;
+	height: 58px;
+	border: #e6e6e6 solid 1px;
+	border-radius: 5px;
+}
+.costOp .layui-input-block{
+	margin-top: -5px;
+	margin-left: 10px;
+}
+/* 库存计数 */
+.inCo{
+	margin-top: 15px;
+	width: 100%;
+	min-width: 240px;
+	height: 60px;
+	line-height: 60px;
+}
+.incoOp{
+	float: right;
+	width: 80%;
+	height: 58px;
+	border: #e6e6e6 solid 1px;
+	border-radius: 5px;
+}
+.incoOp .layui-input-block{
+	margin-top: -5px;
+	margin-left: 10px;
+}
+/* 会员打折 */
+.meDi{
+	margin-top: 15px;
+	width: 100%;
+	min-width: 240px;
+	height: 60px;
+	line-height: 60px;
+}
+.mediOp{
+	float: right;
+	width: 80%;
+	height: 58px;
+	border: #e6e6e6 solid 1px;
+	border-radius: 5px;
+}
+.mediOp .layui-input-block{
+	margin-top: -5px;
+	margin-left: 10px;
+}
+
+/* 配置 */
+.coNf{
+	width: 100%;
+}
+.confBor{
+	margin: 0 auto;
+	width: 95%;
+	overflow: hidden;
+	border: #CCCCCC solid 1px;
+}
+#confInput{
+	float: left;
+	padding-left: 5%;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	width: 45%;
+}
+#confInput input:first-child{
+	width: 200px;
+}
+#confInput input{
+	width: 80px;
+	height: 30px;
+	background: #f1f1f1;
+	text-indent: 5px;
+	border: transparent solid 1px;
+	border-radius: 5px;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+#coNf{
+	height: 480px;
+}
+#coNf button{
+	margin-top: 20px;
+	margin-left: 2.5%;
+	width: 95%;
+	height: 60px;
+	font-size: 20px;
+	color: #666666;
+}
+#coNf button:hover{
+	cursor: pointer;
+}
+/* 详情描述 */
+.deDe{
+	width: 100%;
+	height: 480px;
+	line-height: 40px;
+}
+.dedeTitle{
+	color: #666666;
+}
+.dedeTitle span{
+	margin-right: 2px;
+	color: red;
+	font-size: 20px;
+}
+
+/* 基本参数 */
+#baPa{
+	width: 100%;
+	height: 480px;
+}
+
+/* 关联产品 */
+#asPr{
+	width: 100%;
+	height: 480px;
+}
+.bapaTitle{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	color: #333333;
+	font-weight: 600;
+}
+#bapaTable{
+	width: 100%;
+}
+#bapaTable tr td:first-child{
+	width: 20%;
+	height: 45px;
+}
+#bapaTable tr td{
+	border: #dedede solid 1px;
+	width: 80%;
+	height: 45px;
+}
+#bapaTable tr td input{
+	width: 99%;
+	height: 100%;
+	border: transparent solid 1px;
+	text-indent: 10px;
+}
+#baPa button{
+	margin-top: 20px;
+	margin-left: 2.5%;
+	width: 95%;
+	height: 60px;
+	font-size: 20px;
+	color: #666666;
+}
+#baPa button:hover{
+	cursor: pointer;
+}

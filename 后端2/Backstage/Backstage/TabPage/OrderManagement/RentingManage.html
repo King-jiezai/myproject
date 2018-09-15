@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!-- 本身Css样式 -->
+		<link rel="stylesheet" type="text/css" href="css/RentingManage.css" />
+		<!-- 本身Js代码 -->
+		<script src="js/RentingManage.js" type="text/javascript" charset="utf-8"></script>
+		<!-- LayuiCss样式 -->
+		<link rel="stylesheet" type="text/css" href="../../layui/css/layui.css" />
+		<!-- LayuiJs代码 -->
+		<script src="../../layui/layui.js" type="text/javascript" charset="utf-8"></script>
+		<!-- Jq代码 -->
+		<script src="../../jq/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+
+		<div class="wrapper">
+
+			<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+				<ul class="layui-tab-title">
+					<li class="layui-this">在租设备</li>
+					<li>未归还设备</li>
+					<li>已退还设备</li>
+					<li>续租设备</li>
+					<li>长期订单</li>
+					<li>变更记录</li>
+					<li>买断记录</li>
+				</ul>
+				<div class="layui-tab-content">
+					<div class="layui-tab-item layui-show">
+						
+						<div class="search">
+							<div class="orNu">
+								订单号<input type="text" /><span>查询</span>
+							</div>
+						</div>
+						
+						<div class="detailsList">
+							
+							<div class="detailsList_Title">
+								<div class="checkbox"><input type="checkbox" /></div>
+								<div class="orderNumber">订单号</div>
+								<div class="productName">产品名称</div>
+								<div class="buyerNickname">买家昵称</div>
+								<div class="leaseTerm">租期</div>
+								<div class="number">数量</div>
+								<div class="state">状态</div>
+								<div class="rentOrDeposit">租金/押金</div>
+								<div class="operation">操作</div>
+							</div>
+							
+							<div class="detailsList_Content">
+								<div class="content">
+									<div class="co_CheckBox"><input type="checkbox" /></div>
+									<div class="co_OrderNumber">208221002259924769</div>
+									<div class="co_ProductName">联想 ThinkPad T420 商务</div>
+									<div class="co_BuyerNickname">e小轩22</div>
+									<div class="co_LeaseTerm">
+										<div class="co_StartTime">2018-08-27</div>
+										<div class="co_EndTime">2018-08-27</div>
+									</div>
+									<div class="co_Number">1</div>
+									<div class="co_State">
+										<div class="co_Transportation">快递中</div>
+									</div>
+									<div class="co_RentOrDeposit">
+										<div class="co_Rent">￥120</div>
+										<div class="co_Deposit">￥1500</div>
+									</div>
+									<div class="co_Operation">
+										<div class="co_Return">归还</div>
+									</div>
+								</div>
+								<div class="content">
+									<div class="co_CheckBox"><input type="checkbox" /></div>
+									<div class="co_OrderNumber">208221002259924769</div>
+									<div class="co_ProductName">联想 ThinkPad T420 商务</div>
+									<div class="co_BuyerNickname">e小轩22</div>
+									<div class="co_LeaseTerm">
+										<div class="co_StartTime">2018-08-27</div>
+										<div class="co_EndTime">2018-08-27</div>
+									</div>
+									<div class="co_Number">1</div>
+									<div class="co_State">
+										<div class="co_InUse">使用中</div>
+									</div>
+									<div class="co_RentOrDeposit">
+										<div class="co_PeriodizationRent">￥120 / 4000</div>
+										<div class="co_Deposit">￥1500</div>
+									</div>
+									<div class="co_Operation">
+										<div class="co_Return">归还</div>
+										<div class="co_Expediting">催付</div>
+									</div>
+								</div><div class="content">
+									<div class="co_CheckBox"><input type="checkbox" /></div>
+									<div class="co_OrderNumber">208221002259924769</div>
+									<div class="co_ProductName">联想 ThinkPad T420 商务</div>
+									<div class="co_BuyerNickname">e小轩22</div>
+									<div class="co_LeaseTerm">
+										<div class="co_StartTime">2018-08-27</div>
+										<div class="co_EndTime">2018-08-27</div>
+									</div>
+									<div class="co_Number">1</div>
+									<div class="co_State">
+										<div class="co_InUse">使用中</div>
+									</div>
+									<div class="co_RentOrDeposit">
+										<div class="co_PeriodizationRent">￥120 / 4000</div>
+										<div class="co_Deposit">￥1500</div>
+									</div>
+									<div class="co_Operation">
+										<div class="co_Return">归还</div>
+										<div class="co_Expediting">催付</div>
+									</div>
+								</div>
+								<div class="content">
+									<div class="co_CheckBox"><input type="checkbox" /></div>
+									<div class="co_OrderNumber">208221002259924769</div>
+									<div class="co_ProductName">联想 ThinkPad T420 商务</div>
+									<div class="co_BuyerNickname">e小轩22</div>
+									<div class="co_LeaseTerm">
+										<div class="co_StartTime">2018-08-27</div>
+										<div class="co_EndTime">2018-08-27</div>
+									</div>
+									<div class="co_Number">1</div>
+									<div class="co_State">
+										<div class="co_InUse">使用中</div>
+									</div>
+									<div class="co_RentOrDeposit">
+										<div class="co_PeriodizationRent">￥120 / 4000</div>
+										<div class="co_Deposit">￥1500</div>
+									</div>
+									<div class="co_Operation">
+										<div class="co_Return">归还</div>
+										<div class="co_Expediting">催付</div>
+									</div>
+								</div>
+								<div class="content">
+									<div class="co_CheckBox"><input type="checkbox" /></div>
+									<div class="co_OrderNumber">208221002259924769</div>
+									<div class="co_ProductName">联想 ThinkPad T420 商务</div>
+									<div class="co_BuyerNickname">e小轩22</div>
+									<div class="co_LeaseTerm">
+										<div class="co_StartTime">2018-08-27</div>
+										<div class="co_EndTime">2018-08-27</div>
+									</div>
+									<div class="co_Number">1</div>
+									<div class="co_State">
+										<div class="co_InUse">使用中</div>
+									</div>
+									<div class="co_RentOrDeposit">
+										<div class="co_PeriodizationRent">￥120 / 4000</div>
+										<div class="co_Deposit">￥1500</div>
+									</div>
+									<div class="co_Operation">
+										<div class="co_Return">归还</div>
+										<div class="co_Expediting">催付</div>
+									</div>
+								</div>
+								<div class="content">
+									<div class="co_CheckBox"><input type="checkbox" /></div>
+									<div class="co_OrderNumber">208221002259924769</div>
+									<div class="co_ProductName">联想 ThinkPad T420 商务</div>
+									<div class="co_BuyerNickname">e小轩22</div>
+									<div class="co_LeaseTerm">
+										<div class="co_StartTime">2018-08-27</div>
+										<div class="co_EndTime">2018-08-27</div>
+									</div>
+									<div class="co_Number">1</div>
+									<div class="co_State">
+										<div class="co_InUse">使用中</div>
+									</div>
+									<div class="co_RentOrDeposit">
+										<div class="co_PeriodizationRent">￥120 / 4000</div>
+										<div class="co_Deposit">￥1500</div>
+									</div>
+									<div class="co_Operation">
+										<div class="co_Return">归还</div>
+										<div class="co_Expediting">催付</div>
+									</div>
+								</div>
+								<div class="content">
+									<div class="co_CheckBox"><input type="checkbox" /></div>
+									<div class="co_OrderNumber">208221002259924769</div>
+									<div class="co_ProductName">联想 ThinkPad T420 商务</div>
+									<div class="co_BuyerNickname">e小轩22</div>
+									<div class="co_LeaseTerm">
+										<div class="co_StartTime">2018-08-27</div>
+										<div class="co_EndTime">2018-08-27</div>
+									</div>
+									<div class="co_Number">1</div>
+									<div class="co_State">
+										<div class="co_InUse">使用中</div>
+									</div>
+									<div class="co_RentOrDeposit">
+										<div class="co_PeriodizationRent">￥120 / 4000</div>
+										<div class="co_Deposit">￥1500</div>
+									</div>
+									<div class="co_Operation">
+										<div class="co_Return">归还</div>
+										<div class="co_Expediting">催付</div>
+									</div>
+								</div>
+								<div class="content">
+									<div class="co_CheckBox"><input type="checkbox" /></div>
+									<div class="co_OrderNumber">208221002259924769</div>
+									<div class="co_ProductName">联想 ThinkPad T420 商务</div>
+									<div class="co_BuyerNickname">e小轩22</div>
+									<div class="co_LeaseTerm">
+										<div class="co_StartTime">2018-08-27</div>
+										<div class="co_EndTime">2018-08-27</div>
+									</div>
+									<div class="co_Number">1</div>
+									<div class="co_State">
+										<div class="co_InUse">使用中</div>
+									</div>
+									<div class="co_RentOrDeposit">
+										<div class="co_PeriodizationRent">￥120 / 4000</div>
+										<div class="co_Deposit">￥1500</div>
+									</div>
+									<div class="co_Operation">
+										<div class="co_Return">归还</div>
+										<div class="co_Expediting">催付</div>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+						
+					</div>
+					<div class="layui-tab-item">2</div>
+					<div class="layui-tab-item">3</div>
+					<div class="layui-tab-item">4</div>
+					<div class="layui-tab-item">5</div>
+					<div class="layui-tab-item">6</div>
+					<div class="layui-tab-item">7</div>
+				</div>
+			</div>
+
+		</div>
+
+	</body>
+
+	<script>
+		layui.use('element', function() {
+			var $ = layui.jquery,
+			element = layui.element; //Tab的切换功能，切换事件监听等，需要依赖element模块
+
+			$('.site-demo-active').on('click', function() {
+				var othis = $(this),
+					type = othis.data('type');
+				active[type] ? active[type].call(this, othis) : '';
+			});
+
+		});
+	</script>
+
+</html>

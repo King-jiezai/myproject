@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>广租租赁商城后台</title>
+		<link rel="stylesheet" href="./layui/css/layui.css" media="all">
+		<link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/font-awesome.4.6.0.css">
+		<link rel="stylesheet" href="./build/css/app.css" media="all">
+		<!--<link rel="stylesheet" type="text/css" href="css/indexNav.css" />-->
+	</head>
+
+	<body>
+		<div class="layui-layout layui-layout-admin kit-layout-admin">
+			<div class="layui-header">
+				<div class="layui-logo">广租租赁商城后台</div>
+				<ul class="layui-nav layui-layout-left kit-nav">
+					<li class="layui-nav-item">
+						<a href="javascript:;">控制台</a>
+					</li>
+					<li class="layui-nav-item">
+						<a href="javascript:;">商品管理</a>
+					</li>
+					<li class="layui-nav-item">
+						<a href="javascript:;">其它系统</a>
+						<dl class="layui-nav-child">
+							<dd>
+								<a href="javascript:;">邮件管理</a>
+							</dd>
+							<dd>
+								<a href="javascript:;">消息管理</a>
+							</dd>
+							<dd>
+								<a href="javascript:;">授权管理</a>
+							</dd>
+						</dl>
+					</li>
+				</ul>
+				<ul class="layui-nav layui-layout-right kit-nav">
+					<li class="layui-nav-item">
+						<a href="javascript:;">
+							<img src="http://m.zhengjinfan.cn/images/0.jpg" class="layui-nav-img"> Van
+						</a>
+						<dl class="layui-nav-child">
+							<dd>
+								<a href="javascript:;">基本资料</a>
+							</dd>
+							<dd>
+								<a href="javascript:;">安全设置</a>
+							</dd>
+						</dl>
+					</li>
+					<li class="layui-nav-item">
+						<a href="javascript:;">
+							<i class="fa fa-sign-out" aria-hidden="true"></i> 注销
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="layui-side layui-bg-black kit-side">
+				<div class="layui-side-scroll">
+					<div class="kit-side-fold"><i class="fa fa-navicon" aria-hidden="true"></i></div>
+					<!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+					<ul class="layui-nav layui-nav-tree" lay-filter="kitNavbar" kit-navbar>
+						<li class="layui-nav-item">
+							<a class="" href="javascript:;">
+								<i class="layui-icon">&#xe68e;</i>
+								<span>首页</span>
+							</a>
+						</li>
+						<!-- 会员 -->
+						<li class="layui-nav-item">
+							<a class="" href="javascript:;">
+								<i class="layui-icon">&#xe770;</i>
+								<span>会员管理</span>
+							</a>
+							<dl class="layui-nav-child">
+								<dd>
+									<a href="javascript:;" data-id='1' data-url="./TabPage/MemberManage/MemberList.html" data-icon="" data-title="个人会员列表" kit-target>
+										<span>个人会员列表</span>
+									</a>
+								</dd>
+								<dd>
+									<a href="javascript:;" data-id='2' data-url="./TabPage/MemberManage/EnterpriseMember.html" data-icon="" data-title="企业会员列表" kit-target>
+										<span>企业会员列表</span>
+									</a>
+								</dd>
+								<dd>
+									<a href="javascript:;" data-id='3' data-url="./TabPage/MemberManage/AdminMember.html" data-icon="" data-title="管理员会员列表" kit-target>
+										<span>管理员会员列表</span>
+									</a>
+								</dd>
+								<dd>
+									<a href="javascript:;" data-id='4' data-url="./TabPage/MemberManage/AddMember.html" data-icon="" data-title="新增会员" kit-target>
+										<span>新增会员</span>
+									</a>
+								</dd>
+								<dd>
+									<a href="javascript:;" data-id='' data-url=" " data-icon="" data-title=" " kit-target>
+										<span>会员充值</span>
+									</a>
+								</dd>
+								<dd>
+									<a href="javascript:;" data-id='' data-url=" " data-icon="" data-title=" " kit-target>
+										<span>积分管理</span>
+									</a>
+								</dd>
+							</dl>
+						</li>
+						<!-- 产品管理 -->
+						<li class="layui-nav-item">
+							<a href="javascript:;">
+								<i class="layui-icon">&#xe857;</i>
+								<span>产品管理</span>
+							</a>
+							<dl class="layui-nav-child">
+								<dd>
+									<a href="javascript:;" data-id='7' data-url="TabPage/ProductManagement/AddProducts.html" data-icon="" data-title="添加产品" kit-target>
+										<span>添加产品</span>
+									</a>
+								</dd>
+								<dd>
+									<a href="javascript:;" data-id='8' data-url="TabPage/ProductManagement/ProductManagement.html" data-icon="" data-title="产品管理" kit-target>
+										<span>产品管理</span>
+									</a>
+								</dd>
+								<dd>
+									<a href="javascript:;" data-id='9' data-url=" " data-icon="" data-title=" " kit-target>
+										<span>管理分类</span>
+									</a>
+								</dd>
+								<dd>
+									<a href="javascript:;" data-id='10' data-url="TabPage/ProductManagement/WarehouseManagement.html" data-icon="" data-title="仓库管理" kit-target>
+										<span>仓库管理</span>
+									</a>
+								</dd>
+							</dl>
+						</li>
+						<!-- 订单管理 -->
+						<li class="layui-nav-item">
+							<a href="javascript:;">
+								<i class="layui-icon">&#xe60a;</i>
+								<span>订单管理</span>
+							</a>
+							<dl class="layui-nav-child">
+								<dd>
+									<a href="javascript:;" data-id='11' data-url="TabPage/OrderManagement/OrderManagement.html" data-icon="" data-title="订单列表" kit-target>
+										<span>订单列表</span>
+									</a>
+								</dd>
+								<dd>
+									<a href="javascript:;" data-id='12' data-url="TabPage/OrderManagement/RentingManage.html" data-icon="" data-title="订单列表" kit-target>
+										<span>在租管理</span>
+									</a>
+								</dd>
+								<dd>
+									<a href="javascript:;" data-id='13' data-url="TabPage/OrderManagement/Sales.html" data-icon="" data-title="退货/售后" kit-target>
+										<span>退货/售后</span>
+									</a>
+								</dd>
+							</dl>
+						</li>
+						<!-- 租赁数据 -->
+						<li class="layui-nav-item">
+							<a href="javascript:;">
+								<i class="layui-icon">&#xe629;</i>
+								<span> 租赁数据</span>
+							</a>
+							<dl class="layui-nav-child">
+								<dd>
+									<a href="javascript:;" data-id='' data-url=" " data-icon="" data-title=" " kit-target>
+										<span>尚未确定</span>
+									</a>
+								</dd>
+								<dd>
+									<a href="javascript:;" data-id='' data-url=" " data-icon="" data-title=" " kit-target>
+										<span>尚未确定</span>
+									</a>
+								</dd>
+								<dd>
+									<a href="javascript:;" data-id='' data-url=" " data-icon="" data-title=" " kit-target>
+										<span>尚未确定</span>
+									</a>
+								</dd>
+							</dl>
+						</li>
+						<!-- 免押金 -->
+						<li class="layui-nav-item">
+							<a href="javascript:;">
+								<i class="layui-icon">&#xe63c;</i>
+								<span>免押金</span>
+							</a>
+							<dl class="layui-nav-child">
+								<dd>
+									<a href="javascript:;" data-id='16' data-url="TabPage\Deposit\Deposit.html" data-icon="" data-title="免押金申请" kit-target>
+										<span>免押金申请</span>
+									</a>
+								</dd>
+								<dd>
+									<a href="javascript:;" data-id='' data-url=" " data-icon="" data-title=" " kit-target>
+										<span>尚未确定</span>
+									</a>
+								</dd>
+								<dd>
+									<a href="javascript:;" data-id='' data-url=" " data-icon="" data-title=" " kit-target>
+										<span>尚未确定</span>
+									</a>
+								</dd>
+							</dl>
+						</li>
+						<!-- 定制服务 -->
+						<li class="layui-nav-item">
+							<a href="javascript:;">
+								<i class="layui-icon">&#xe642;</i>
+								<span>定制服务</span>
+							</a>
+							<dl class="layui-nav-child">
+								<dd>
+									<a href="javascript:;" data-id='' data-url=" " data-icon="" data-title=" " kit-target>
+										<span>尚未确定</span>
+									</a>
+								</dd>
+								<dd>
+									<a href="javascript:;" data-id='' data-url=" " data-icon="" data-title=" " kit-target>
+										<span>尚未确定</span>
+									</a>
+								</dd>
+								<dd>
+									<a href="javascript:;" data-id='' data-url=" " data-icon="" data-title=" " kit-target>
+										<span>尚未确定</span>
+									</a>
+								</dd>
+							</dl>
+						</li>
+						<!-- 产品回收 -->
+						<li class="layui-nav-item">
+							<a href="javascript:;">
+								<i class="layui-icon">&#xe857;</i>
+								<span>产品回收</span>
+							</a>
+							<dl class="layui-nav-child">
+								<dd>
+									<a href="javascript:;" data-id='' data-url=" " data-icon="" data-title=" " kit-target>
+										<span>尚未确定</span>
+									</a>
+								</dd>
+								<dd>
+									<a href="javascript:;" data-id='' data-url=" " data-icon="" data-title=" " kit-target>
+										<span>尚未确定</span>
+									</a>
+								</dd>
+								<dd>
+									<a href="javascript:;" data-id='' data-url=" " data-icon="" data-title=" " kit-target>
+										<span>尚未确定</span>
+									</a>
+								</dd>
+							</dl>
+						</li>
+						<!-- 报表统计 -->
+						<li class="layui-nav-item">
+							<a href="javascript:;">
+								<i class="layui-icon">&#xe63c;</i>
+								<span>报表统计</span>
+							</a>
+							<dl class="layui-nav-child">
+								<dd>
+									<a href="javascript:;" data-id='' data-url=" " data-icon="" data-title=" " kit-target>
+										<span>尚未确定</span>
+									</a>
+								</dd>
+								<dd>
+									<a href="javascript:;" data-id='' data-url=" " data-icon="" data-title=" " kit-target>
+										<span>尚未确定</span>
+									</a>
+								</dd>
+								<dd>
+									<a href="javascript:;" data-id='' data-url=" " data-icon="" data-title=" " kit-target>
+										<span>尚未确定</span>
+									</a>
+								</dd>
+							</dl>
+						</li>
+						<!-- 系统设置 -->
+						<li class="layui-nav-item">
+							<a href="javascript:;">
+								<i class="layui-icon">&#xe716;</i>
+								<span>系统设置</span>
+							</a>
+							<dl class="layui-nav-child">
+								<dd>
+									<a href="javascript:;" data-id='' data-url=" " data-icon="" data-title=" " kit-target>
+										<span>尚未确定</span>
+									</a>
+								</dd>
+								<dd>
+									<a href="javascript:;" data-id='' data-url=" " data-icon="" data-title=" " kit-target>
+										<span>尚未确定</span>
+									</a>
+								</dd>
+								<dd>
+									<a href="javascript:;" data-id='' data-url=" " data-icon="" data-title=" " kit-target>
+										<span>尚未确定</span>
+									</a>
+								</dd>
+							</dl>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="layui-body" id="container">
+				<!-- 内容主体区域 -->
+				<div style="padding: 15px;">主体内容加载中,请稍等...</div>
+			</div>
+
+			<div class="layui-footer" style="text-align: center;">
+				<!-- 底部固定区域 -->
+				&copy; 2018 - 2019 大广租赁商城后台
+
+			</div>
+		</div>
+
+		<script src="./layui/layui.js"></script>
+		<script>
+			var message;
+			layui.config({
+				base: 'build/js/'
+			}).use(['app', 'message'], function() {
+				var app = layui.app,
+					$ = layui.jquery,
+					layer = layui.layer;
+				//将message设置为全局以便子页面调用
+				message = layui.message;
+				//主入口
+				app.set({
+					type: 'iframe'
+				}).init();
+			});
+		</script>
+	</body>
+
+</html>

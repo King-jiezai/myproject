@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>卖家处理申请</title>
+		<link rel="stylesheet" type="text/css" href="../../css/RefundOfRefunds/State_Page.css"/>
+		<link rel="stylesheet" type="text/css" href="../../../../layui/css/layui.css"/>
+		<script src="../../js/RefundOfRefunds/State_Page.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../../layui/layui.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../../jq/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="Pagetitle">
+				售后详情
+			</div>
+			<!-- OrderDetails 订单详情 -->
+			<div class="OrDe">
+				<div class="img"></div>
+				<div class="TitleMode">
+					<div class="shoppingName"></div>
+				</div>
+				<!-- operation 操作 -->
+				<div class="opon">
+					<div class="oponTop">
+						<div class="oponTopLf">退款申请等待卖家确认中</div>
+						<div class="oponTopRg"></div>
+					</div>
+					<div class="oponBottom">
+						<div class="oponBottomLf curpoi">处理退款</div>
+						<div class="oponBottomRg"></div>
+					</div>
+				</div>
+			</div>
+			<!-- Refund information 退款信息 -->
+			<div class="reIn">
+				<div class="reInTitle">退款信息</div>
+				<div>
+					<div class="reInLf">
+						<div class="reInLfTop">买家昵称：<span class="span"></span></div>
+						<div class="reInLfBottom"></div>
+					</div>
+					<div class="reInCt">
+						<div class="reInCtTop"></div>
+						<div class="reInCtBottom"></div>
+					</div>
+					<div class="reInRg">
+						<div class="reInRgTop"></div>
+						<div class="reInRgBottom"></div>
+					</div>
+				</div>
+			</div>
+			<!-- Message Board 留言板 -->
+			<div class="meBo">
+				<div class="meBoTitle">留言板</div>
+				<div class="meBonav">
+					<p>头像</p>
+					<p>时间</p>
+					<p>昵称</p>
+					<p>内容</p>
+				</div>
+				<div class="meBoContent">
+					<div class="meBoCoCt"><span class="meBoimg"></span></div>
+					<div class="meBoCoLf"></div>
+					<div class="meBoName"></div>
+					<div class="meBoCoRg"></div>
+				</div>
+			</div>
+			<!-- Refund processing 退款处理 -->
+			<div class="rePr">
+				<div class="rePrTitle">退货退款处理</div>
+				<!-- schedule 进度条 -->
+				<div class="rePrSc">
+					<div class="ScOne">买家申请退货退款</div>
+					<div class="ScTwo">卖家处理退货退款</div>
+					<div class="ScThree">买家退货</div>
+					<div class="ScFour">处理结果</div>
+				</div>
+			</div>
+			<!-- Handle 处理 -->
+			<div class="handle" id="handle">
+				<div id="handleLf" class="handleLf">
+					<div class="haLfTitle">请处理退货请求</div>
+					<div class="tips">请及时联系买家协商退货事宜</div>
+					<ul>
+						<li>如果您同意，请点击“同意退货”，将正确退货地址给买家。</li>
+						<li>如果您逾期未处理申请，视作同意买家申请。系统会自动将当前交易的退货地址发给买家</li>
+					</ul>
+					<!-- Consent operation 同意操作 -->
+					<form class="layui-form"  action="" method="">
+						<div class="coOp" id="coOp" style="display: block;">
+							<!-- Receiving address 收货地址 -->
+							<div class="reAd">
+								<div class="reAdLf">
+									<span>*</span>退货地址：
+								</div>
+								<div class="reAdRg">
+									<div class="reAdRgTop" id="reAdRgTop">收货人：<span>王秀团18929544445</span></div>
+									<div class="reAdRgBottom" id="reAdRgBottom">收货地址：<span>广东省广州市天河区石牌西路8号展望数码广场9楼（908-910室）</span></div>
+								</div>
+							</div>
+							<!---->
+						</div>
+					</form>
+					<!-- disagree operation 拒绝操作-->
+					<form class="layui-form" action="">
+						<div class="diOp" id="diOp" style="display: none;">
+							<div class="reason">
+								<span>*</span>拒绝原因：
+							   	<div class="select">
+							   		<select name="interest" lay-filter="aihao">
+								        <option value=""></option>
+								        <option value="0">商品影响二次销售</option>
+								        <option value="1">要求买家承担运费</option>
+								        <option value="2">商品无问题，买家举证无效</option>
+								        <option value="3">其他</option>
+							    	</select>
+							   	</div>
+						    </div>
+						    <div class="explain">
+						    	<span>*</span>拒绝说明：
+						    	<div class="textarea">
+						    		<textarea id="textar"></textarea>
+						    	</div>
+						    </div>
+						    <div class="submitssion">
+						    	<div class="submitLf">
+						    		<div class="submit curpoi">提交</div>
+						    	</div>
+						    	<div class="submitRg">
+						    		<div class="cancel curpoi" onclick="cancel()">取消</div>
+						    	</div>
+						    </div>
+						</div>
+					</form>
+					<!-- Processing selection 处理选择 -->
+					<div class="prSe" id="prSe" style="display: block;">
+						<div class="agree curpoi" onclick="agree()">同意退货</div>
+						<div class="disagree curpoi" onclick="disagree()">拒绝申请</div>
+					</div>
+				</div>
+				<div class="handleRg">
+					<div class="haRgTitle">退款详情</div>
+					<!-- Order details 订单详情 -->
+					<div class="orDe">
+						<div class="orDeImg"></div>
+						<div class="orDeTitle">
+							<div class="orDeTiTop">联想 ThinkPad T440P 便携式商务笔记本电脑出租 租赁 广州</div>
+							<div class="orDeTiBottom">租赁方式：全额押金+月付</div>
+						</div>
+					</div>
+					<div class="details">
+						<div class="hr"></div>
+						<div class="detailsLf">
+							<div class="Name">买家：最爱静静宝贝</div>
+							<div class="OrderNumber">订单编号： 192855443216174465</div>
+							<div>押金：￥1709.00*1(数量)</div>
+							<div>租金：￥120.00</div>
+							<div>优惠：￥0.00</div>
+							<div>邮费：￥0.00</div>
+							<div>实付：￥1829.00</div>
+						</div>
+						<div class="detailsRg">
+							<div>退款编号：11130711350176544</div>
+							<div>退款金额：￥1700.00</div>
+							<div>申请件数：1</div>
+							<div>原因：到期退租</div>
+							<div>要求：退货退款</div>
+							<div>说明：</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	
+	<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+	<script>
+	layui.use(['form', 'layedit', 'laydate'], function(){
+	  var form = layui.form
+	  
+	});
+	</script>
+	
+</html>

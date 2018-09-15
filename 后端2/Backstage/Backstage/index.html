@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>广租租赁商城后台</title>
+		<script type="text/javascript" src="jq/jquery-3.1.1.min.js" ></script>
+		<!--<script type="text/javascript" src="TabPage/login/login.js" ></script>-->
+	</head>
+	<body style="background: rgb(255,192,203);">
+		<div style=" width: 170px; height: 90px; margin: 0 auto; margin-top: 350px;">
+			<input type="text" style="text-indent: 5px;" id="phone" placeholder="请输入账号"/>
+			<br>
+			<input type="password" id="password" margin-top: 20px; text-indent: 5px;"" placeholder="请输入密码"/>
+			<div onclick="login()" id="btn" style="margin-top: 20px; margin-left: 40px; cursor: pointer; width: 60px; height: 25px; text-align: center; line-height: 25px; background: #FFFFFF;">登录</div>
+		</div>
+	</body>
+	<script>
+		 	/* 数据返回后端 */
+  	function login(){
+  	
+  		var phones = document.getElementById("phone").value
+  		var passwords = document.getElementById("password").value
+  		
+//		$.ajax({
+//	    	//请求方式
+//	    	type:"POST",
+//	    	//文件位置
+//	    	url:"http://120.78.142.125/dg/user/login.do",
+//	    	
+//	    	data: {
+//	    		phone :'18888888888',
+//	    		password: '123456',
+//				},
+//		    //返回数据格式为json,也可以是其他格式如
+//		    dataType:'json',
+//		    //请求成功后要执行的函数，拼接html
+//		    success: function(data){
+//		    	
+//		    	if (data.status == 1) {
+//		    	
+//		    		window.open("index1.html")
+//		    	}
+//		    		    	
+//		    	
+//		    }
+//		})
+}   
+	</script>
+<script type="text/javascript">
+		
+		$(function() {
+			//提交
+			$('#btn').click(function() {
+					$.ajax({
+						type : "post",
+//						url : "http://120.78.142.125/dg/user/login.do",
+						url : "http://192.168.1.172:8080/dg/user/login.do",
+						async : true,
+						dataType : "json",
+						xhrFields: {
+           					withCredentials: true
+       					},
+       					crossDomain: true,
+						data : {
+							phone : '18888888888',
+							password : '123456',
+						},
+						success : function(data) {
+							if (data.status == 1) {
+								console.log(data)
+							window.open("index1.html")
+							}
+						},
+						error : function() {
+							alert('请求失败')
+						}
+					});
+			})
+		})
+	</script>
+
+  		
+	
+</html>
+   

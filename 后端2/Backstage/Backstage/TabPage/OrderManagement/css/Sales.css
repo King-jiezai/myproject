@@ -1,0 +1,254 @@
+.curpoi{
+	cursor: pointer;
+}
+#input{
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	z-index: -10;
+}
+/* 选择按钮 */
+.checkbox {
+	width: 20px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+}
+/* 内容包裹框*/
+.coWr{
+	margin-top: 10px;
+	padding: 1% 1%;
+	width: 98%;
+	border: #DDDDDD solid 1px;
+	border-radius: 5px;
+}
+/* 选择框 */
+.seBo{
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	color: #999999;
+}
+.seBo input{
+	margin-left: 1%;
+}
+.seBo span{
+	margin-left: 5px;
+	font-size: 14px;
+}
+.seBo i{
+	color: #2595d3;
+}
+/* 外层包裹器 */
+.orDe{
+	margin: 0 auto;
+	margin-top: 10px;
+	width: 100%;
+	border-top: #EDECEC solid 1px;
+	border-left: #EDECEC solid 1px;
+	border-right: #EDECEC solid 1px;
+}
+/* 顶部内容 */
+.ordeTop{
+	display: flex;
+	padding-left: 10px;
+	height: 40px;
+	line-height: 40px;
+	background: #EFF9FE;
+}
+/* 订单号 */
+.orNumber{
+	margin-left: 20px;
+	color: #999999;
+	font-size: 12px;
+}
+/* 交易时间 */
+.trTi{
+	margin-left: 20px;
+	color: #999999;
+	font-size: 12px;
+}
+/* 店铺名称 */
+.ShopName{
+	margin-left: 20px;
+	color: #2595d3;
+	cursor: pointer;
+	font-size: 12px;
+}
+
+/* 订单详情 */
+.middle{
+	padding-top: 10px;
+	width: 100%;
+	height: 80px;
+	border-top: #EDECEC solid 1px;
+	border-bottom: #EDECEC solid 1px;
+}
+/* 收货地址 */
+.reIn{
+	margin-left: 10px;
+	height: 25px;
+	line-height: 25px;
+	color: #999999;
+	font-size: 13px;
+}
+.reIn span{
+	color: #333333;
+}
+.reIn .reInOp{
+	margin: 0 10px;
+	color: #2595D3
+}
+/* 买家留言 */
+.buSNo{
+	margin-left: 10px;
+	height: 25px;
+	line-height: 25px;
+	color: #999999;
+	font-size: 13px;
+}
+.buSNo span{
+	color: #2595d3;
+}
+/* 卖家留言 */
+.SeSNo{
+	margin-left: 10px;
+	height: 25px;
+	line-height: 25px;
+	color: #999999;
+	font-size: 13px;
+}
+.SeSNo span{
+	color: #E62129;
+}
+
+/* 订单内容 */
+.ordeBottom{
+	display: flex;
+	width: 100%;
+}
+/* 订单内容详情 */
+.commodity_Number{
+	width: 79.1%
+}
+.coIn{
+	display: flex;
+	padding: 30px 1%;
+	width: 98%;
+	height: 90px;
+	border-bottom: #EDECEC solid 1px;
+	border-left: #EDECEC solid 1px;
+	border-right: #EDECEC solid 1px;
+}
+/* 商品图片 */
+.shImg{
+	padding: 10px 5px;
+	width: 78px;
+	height: 68px;
+	border: #EDECEC solid 1px;"
+}
+.shImg img{
+	width: 100%;
+	height: 100%;
+}
+/* 商品名称 电脑配置 */
+.coInlf{
+	margin-left: 20px;
+	width: 50%;
+	height: 90px;
+	font-size: 14px;
+}
+/* 商品名称 */
+.shNa{
+	height: 30px;
+	line-height: 30px;
+	color: #2595d3;
+}
+/* 电脑配置 */
+.coMo{
+	margin-left: 5px;
+	height: 30px;
+	line-height: 30px;
+	color: #333333;
+}
+.coFu{
+	height: 30px;
+	line-height: 30px;
+	color: #999999;
+}
+.coFu span{
+	margin-left: 5px;
+	margin-right: 15px;
+}
+
+/* 起始租期 - 结束租期 */
+.StartEnd{
+	padding: 30px 0;
+	width: 18%;
+	height: 30px;
+	text-align: center;
+	font-size: 12px;
+	color: #555555;
+}
+/* 单价 * 数量 */
+.coSta {
+	width: 30%;
+	height: 90px;
+	text-align: center;
+	color: #555555;
+	line-height: 20px;
+}
+.sePr {
+	margin-top: 25px;
+}
+.Status {
+	margin-top: 5px;
+	color: #e60012;
+}
+.Status a {
+	color: #e60012;;
+}
+/* 总价-邮费-优惠 数据 */
+.No_trMo{
+	padding-top: 10px;
+	width: 22.1%;
+	text-align: center;
+	font-size: 15px;
+	border-bottom: #EDECEC solid 1px;
+	border-right: #EDECEC solid 1px;
+}
+/* 总价 */
+.money{
+	color: #E60012;
+	font-size: 18px;
+}
+/* 改价 */
+.rePr{
+	margin-top: 5px;
+}
+.rePr span{
+	padding: 3px 5px;
+	background: #E60012;
+	border-radius: 5px;
+	color: #FFFFFF;
+	cursor: pointer;
+}
+/* 运费 */
+.Expresscost{
+	margin-top: 30px;
+	color: #999999;
+}
+/* 优惠 */
+.Discount{
+	margin-top: 5px;
+	color: #999999;
+}
+/*实际付款*/
+.Payment {
+	margin-top: 5px;
+	color: #999999;
+}
+.Payment span {
+	color: #E62129;
+}
