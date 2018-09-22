@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>卖家处理申请</title>
+		<link rel="stylesheet" type="text/css" href="../../css/ExchangeGoods/Exchange_Barter.css"/>
+		<link rel="stylesheet" type="text/css" href="../../../../layui/css/layui.css"/>
+		<script type="text/javascript" src="../../js/ExchangeGoods/ExchangeGoods.js" ></script>
+		<script src="../../../../layui/layui.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../../jq/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="Pagetitle">
+				售后详情
+			</div>
+			<!-- OrderDetails 订单详情 -->
+			<div class="OrDe">
+				<div class="img"></div>
+				<div class="TitleMode">
+					<div class="shoppingName"></div>
+				</div>
+				<!-- operation 操作 -->
+				<div class="opon">
+					<div class="oponTop">
+						<div class="oponTopLf">退货退款申请等待卖家确认中</div>
+						<div class="oponTopRg"></div>
+					</div>
+					<div class="oponBottom">
+						<div class="oponBottomLf curpoi">处理退货退款</div>
+						<div class="oponBottomRg"></div>
+					</div>
+				</div>
+			</div>
+			<!-- Refund information 退款信息 -->
+			<div class="reIn">
+				<div class="reInTitle">退款信息</div>
+				<div>
+					<div class="reInLf">
+						<div class="reInLfTop">买家昵称：<span class="span"></span></div>
+						<div class="reInLfBottom"></div>
+					</div>
+					<div class="reInCt">
+						<div class="reInCtTop"></div>
+						<div class="reInCtBottom"></div>
+					</div>
+					<div class="reInRg">
+						<div class="reInRgTop"></div>
+						<div class="reInRgBottom"></div>
+					</div>
+				</div>
+			</div>
+			<!-- Message Board 留言板 -->
+			<div class="meBo" id="meBo">
+				<div class="meBoTitle">协商历史</div>
+				<div class="meBonav">
+					<p>头像</p>
+					<p>时间</p>
+					<p>昵称</p>
+					<p>内容</p>
+				</div>
+				<div class="meBoContents" id="meBoContents"></div>
+			</div>
+			<!-- Refund processing 退款处理 -->
+			<div class="rePr">
+				<div class="rePrTitle">换货/维修处理</div>
+				<!-- schedule 进度条 -->
+				<div class="rePrSc">
+					<div class="ScOne">买家申请换货</div>
+					<div class="ScTwo">卖家处理换货</div>
+					<div class="ScThree">买家换货</div>
+					<div class="ScFour">处理结果</div>
+				</div>
+			</div>
+			<!-- Handle 处理 -->
+			<div class="handle" id="handle">
+				<div id="handleLf" class="handleLf">
+					<div class="haLfTitle">请处理退货请求</div>
+					<div class="tips">请及时联系买家协商退货事宜</div>
+					<ul>
+						<li>如果您同意，请点击“同意退货”，将正确退货地址给买家。</li>
+						<li>如果您逾期未处理申请，视作同意买家申请。系统会自动将当前交易的退货地址发给买家</li>
+					</ul>
+					<div class="coMoney" id="coMoney" style="display: block;">
+						<!-- Tips 提示 -->
+						<div class="Tips">
+							<span class="TipsOne">!</span>
+							<span class="TipsTwo">温馨提示，如需补交租金、押金请在下方填写补交金额；不填则默认为无需补交！</span>
+							<span class="TipsTwo">需要补交租金和押金，两个是必填选项。如果只补交租金或者押金，另外一个选项必须为零，否则默认为无需补交！</span>
+						</div>
+						<!-- Complement Input 补交输入框 -->
+						<div class="coInput" >
+							<!-- Complement rent 补租金  -->
+							<div class="coRent">
+								补交租金：<input type="text" id="coRent"><span>元</span>
+							</div>
+							<!-- Complement deposit 补押金  -->
+							<div class="coDeposit">
+								补交押金：<input type="text" id="coDeposit"><span>元</span>
+							</div>
+						</div>
+					</div>	
+					<!-- Consent operation 同意操作 -->
+					<form class="layui-form"  action="" method="">
+						<div class="coOp" id="coOp" style="display: block;">
+							<!-- Receiving address 收货地址 -->
+							<div class="reAd">
+								<div class="reAdLf">
+									<span>*</span>退货地址：
+								</div>
+								<div class="reAdRg">
+									<div class="reAdRgTop" id="reAdRgTop">收货人：<span class="reAdRgName"></span></div>
+									<div class="reAdRgBottom" id="reAdRgBottom">收货地址：<span class="reAdRgAddress"></span><span class="DetailedAddress"></span></div>
+									<div class="reAdRgPhone" id="reAdRgPhone">联系电话：<span class="reAdRgPhones"></span></div>
+									<div class="reAdRgCode" id="reAdRgCode">邮政编码：<span class="reAdRgCodes"></span></div>
+									<div class="modifyAddres" onclick="modify()">修改</div>
+								</div>
+							</div>
+							<!---->
+						</div>
+					</form><!-- disagree operation 拒绝操作-->
+					<form class="layui-form" action="">
+						<div class="diOp" id="diOp" style="display: none;">
+							<div class="reason">
+								<span>*</span>拒绝原因：
+							   	<div class="select">
+							   		<select name="interest" lay-filter="aihao">
+								        <option value=""></option>
+								        <option value="0">商品影响二次销售</option>
+								        <option value="1">要求买家承担运费</option>
+								        <option value="2">商品无问题，买家举证无效</option>
+								        <option value="3">其他</option>
+							    	</select>
+							   	</div>
+						    </div>
+						    <div class="explain">
+						    	<span>*</span>拒绝说明：
+						    	<div class="textarea">
+						    		<textarea id="textar"></textarea>
+						    	</div>
+						    </div>
+						    <div class="submitssion">
+						    	<div class="submitLf">
+						    		<div class="submit curpoi" onclick="submits()">提交</div>
+						    	</div>
+						    	<div class="submitRg">
+						    		<div class="cancel curpoi" onclick="cancel()">取消</div>
+						    	</div>
+						    </div>
+						</div>
+					</form>
+					<!-- Processing selection 处理选择 -->
+					<div class="prSe" id="prSe" style="display: block;">
+						<div class="agree curpoi" onclick="Review()">同意申请</div>
+						<div class="disagree curpoi" onclick="disagree()">拒绝申请</div>
+					</div>
+					
+				</div>
+				<div class="handleRg">
+					<div class="haRgTitle">退款详情</div>
+					<!-- Order details 订单详情 -->
+					<div class="orDe">
+						<div class="orDeImg"></div>
+						<div class="orDeTitle">
+							<div class="orDeTiTop"></div>
+							<div class="Leasehold">
+								<p>租赁时间：</p>
+								<div class="orDeTiBottom"></div>
+								<span>~</span>
+								<div class="orDeTiBottoms"></div>
+							</div>
+						</div>
+					</div>
+					<div class="details">
+						<div class="hr"></div>
+						<div class="detailsLf">
+							<div class="Name">买家：<span class="BuyerName"></span></div>
+							<div class="OrderNumber">订单编号：<span class="OrderNumbers"></span></div>
+							<div class="deposit">押金：<span class="deposits"></span></div>
+							<div class="rent">租金：<span class="rents"></span></div>
+							<div class="Discount">优惠：<span class="Discounts"></span></div>
+							<div class="Postage">邮费：<span class="Postages"></span></div>
+							<div class="payment">实付：<span class="payments"></span></div>
+						</div>
+						<div class="detailsRg">
+							<div class="RefundNumber">退款编号：<span class="RefundNumbers"></span></div>
+							<div class="RefundAmount">退款金额：<span class="RefundAmounts"></span></div>
+							<div class="Number ">申请件数：<span class="Numbers"></span></div>
+							<div class="Reason">原因：<span class="Reasons"></span></div>
+							<div class="Requirement">要求：<span class="Requirements"></span></div>
+							<div class="Explain">说明：<span class="Explains"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	
+	<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+	<script>
+	layui.use(['form', 'layedit', 'laydate'], function(){
+	  var form = layui.form
+	  
+	});
+	</script>
+	
+</html>

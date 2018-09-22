@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../../popup/css/zcity.css"/>
+		<script src="../../../../jq/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../popup/js/zcity.js" type="text/javascript" charset="utf-8"></script> 
+	</head>
+	<body>
+		<div id="modify"  style="margin: 0 auto; margin-top: 10px; padding: 15px 10px; width: 680px; height: 330px;">
+		  	<div class="moContacts" style="margin: 0 auto; width: 500px; height: 40px; line-height: 40px; color: #555555; font-size: 13px;">
+		  		<span style="color: #E60012;">*</span>
+		  		联系人：<input id="moContacts" type="text" style="margin-left: 18px; width: 130px; height: 30px; text-indent: 5px;" />
+		  	</div>
+		  	<div class="moPostalcode" style="margin: 0 auto; margin-top: 5px; width: 500px; height: 40px; line-height: 40px; color: #555555; font-size: 13px;">
+		  		邮政编码：<input id="moPostalcode" type="text" style="margin-left: 15px; width: 130px; height: 30px; text-indent: 5px;"/>
+		  	</div>
+		  	<div class="moPhone" style="margin: 0 auto; margin-top: 5px; width: 500px; height: 40px; line-height: 40px; color: #555555; font-size: 13px;">
+		  		<span style="color: #E60012;">*</span>
+		  		手机号：<input id="moPhone" type="text" style="margin-left: 18px; width: 130px; height: 30px; text-indent: 5px;"/>
+		  	</div>
+		  	<div class="moAddress" style="display: flex; margin: 0 auto; margin-top: 5px; width: 500px; height: 40px; line-height: 40px; color: #555555; font-size: 13px;">
+		  		<span style="color: #E60012;">*</span>
+		  		所在地区：
+		  		<div class="zcityGroup" city-range="{'level_start':1,'level_end':3}" city-ini="" style="margin-left: 4px; margin-top: 3px;"></div>
+		  		<!--<select style="width: 80px; height: 30px;">
+		  			<option></option>
+		  		</select>
+		  		<select style="width: 160px; height: 30px;">
+		  			<option></option>
+		  		</select>
+		  		<select style="width: 80px; height: 30px;">
+		  			<option></option>
+		  		</select>-->
+		  	</div>
+		  	<div class="moDetailsAddress"  style="display: flex; margin: 0 auto; margin-top: 5px; width: 500px; height: 110px; line-height: 40px; color: #555555; font-size: 13px; ">
+		  		<span style="color: #E60012;">*</span>
+		  		详情地址：<textarea style="padding: 5px 5px; margin-top: 5px; margin-left: 8px; width: 390px; height: 90px; resize:none;"></textarea>
+		  	</div>
+		</div>
+
+		<script type="text/javascript">
+		zcityrun('.zcityGroup');
+		function test(){
+		   var value = [];
+		   var objs = $("input[class='currentValue']");
+			for (var i = 0; i < objs.size(); i++) {
+		    	value.push(objs.eq(i).val());
+			}
+		   var teet = value.join('')
+		   console.log(teet)
+		}
+		</script>
+
+	</body>
+</html>

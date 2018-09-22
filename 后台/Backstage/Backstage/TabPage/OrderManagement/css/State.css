@@ -1,0 +1,77 @@
+/* 待付款 wait for payment */
+.WFPstate{
+	padding: 0 10px;
+	margin-top: 5px;
+	margin-left: 10px;
+	height: 30px;
+	line-height: 30px;
+	border-radius: 5px;
+	background: #f4892d;
+	color: #FFFFFF;
+}
+/* 待发货 */
+.WFstate{
+	padding: 0 10px;
+	margin-top: 5px;
+	margin-left: 10px;
+	height: 30px;
+	line-height: 30px;
+	border-radius: 5px;
+	background: #2595d3;
+	color: #FFFFFF;
+}
+/* 已发货 */
+.Alstate{
+	padding: 0 10px;
+	margin-top: 5px;
+	margin-left: 10px;
+	height: 30px;
+	line-height: 30px;
+	border-radius: 5px;
+	background: #2ebc88;
+	color: #FFFFFF;
+}
+/* 交易完成 Transaction completion */
+.TrCostate{
+	padding: 0 10px;
+	margin-top: 5px;
+	margin-left: 10px;
+	height: 30px;
+	line-height: 30px;
+	border-radius: 5px;
+	background: #2ebc88;
+	color: #FFFFFF;
+}
+/* 待评价 Waiting evaluation */
+.WaEvstate{
+	padding: 0 10px;
+	margin-top: 5px;
+	margin-left: 10px;
+	height: 30px;
+	line-height: 30px;
+	border-radius: 5px;
+	background: #2ebc88;
+	color: #FFFFFF;
+}
+/* 申请退款  Application for refund */
+.AFRstate{
+	padding: 0 10px;
+	margin-top: 5px;
+	margin-left: 10px;
+	height: 30px;
+	line-height: 30px;
+	border-radius: 5px;
+	background: #e62129;
+	color: #FFFFFF;
+}
+/* 已关闭 Transaction closure */
+.TrClstate{
+	padding: 0 10px;
+	margin-top: 5px;
+	margin-left: 10px;
+	height: 30px;
+	line-height: 30px;
+	border-radius: 5px;
+	background: #c7c7c7;
+	color: #FFFFFF;
+}

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../../layui/css/layui.css"/>
+		<link rel="stylesheet" type="text/css" href="css/AddProducts.css"/>
+		<script src="../../layui/layui.js"></script>
+		<script src="js/AddProducts.js"></script>
+		<script src="../../jq/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="layui-tab layui-tab-card">
+				<ul class="layui-tab-title">
+				    <li class="layui-this" style="width: 17.6%;">基本信息</li>
+				    <li style="width: 17.6%;">配置</li>
+				    <li style="width: 17.6%;">详情描述</li>
+				    <li style="width: 17.6%;">基本参数</li>
+				    <li style="width: 17.6%;">关联产品</li>
+				</ul>
+				<div class="layui-tab-content">
+					<div class="layui-tab-item layui-show">
+					    	<form class="layui-form" action="">
+					    		<!-- 基本信息 Essential information -->
+					    		<div class="esIn">
+					    			<div class="lf">
+					    				<!-- 产品类型 product type -->
+					    				<div class="prTy">
+					    					<div class="title">商品类型</div>
+					    					<div class="prtyOp">
+										    <div class="layui-input-block">
+										    		<input type="radio" name="sex" value="普通" checked="" title="普通">
+										    		<input type="radio" name="sex" value="预售" title="预售">
+										    		<input type="radio" name="sex" value="积分兑换" title="积分兑换">
+										    </div>
+					    					</div>
+					    				</div>
+					    				<!-- 商品名称 Commodity name -->
+					    				<div class="coNa">
+					    					<div class="title">商品名称</div>
+					    					<div class="conaInput">
+					    						<input type="text"/>
+					    					</div>
+					    				</div>
+					    				<!-- 产品分类 Product classification -->
+					    				<div class="prCl">
+					    					<div class="title">商品分类</div>
+					    					<div class="prclOp">
+					    						<div class="prclopLf">
+					    							<div class="layui-input-block">
+										      		<select name="interest" id="option">
+												        <option value=""></option>
+										      		</select>
+										    		</div>
+					    						</div>
+					    					</div>
+					    				</div>
+					    				
+					    				<!-- 商品简介 Commodity introduction -->
+					    				<div class="coIn">
+					    					<div class="title">商品简介</div>
+					    					<div class="coinInput">
+					    						<textarea id="coinInput" style="display: none; height: 50px;"></textarea>
+					    					</div>
+					    				</div>
+					    			</div>
+					    			<div class="rg">
+					    				<!-- Commodity master diagram -->
+					    				<form class="layui-form" action="http://120.78.75.195:8080/dg/manage/product/upload.do">
+						    				<div class="comaDi">
+						    					<div class="rgtitle">商品主图</div>
+						    					<div class="comadiImg">
+						    						<div class="layui-upload">
+						    							<div class="layui-upload">
+														<div class="layui-upload">
+															<blockquote class="layui-elem-quote layui-quote-nm" style="margin-top: 10px;">
+																<div class="layui-upload-list" id="demo2"></div>
+															</blockquote>
+															<button type="button" class="layui-btn" id="img">多图片上传</button>
+														</div>
+						    							</div>
+												</div> 
+						    					</div>
+						    				</div>
+						    				<!-- 商品状态 Commodity state -->
+						    				<div class="coSt">
+						    					<div class="rgtitle">商品状态</div>
+						    					<div class="costOp">
+							    					<div class="layui-input-block">
+											    		<input type="radio" name="state" value="立刻上架" checked="" title="立刻上架">
+											    		<input type="radio" name="state" value="定时上架" title="定时上架">
+											    		<input type="radio" name="state" value="放入仓库" title="放入仓库">
+											    </div>
+											</div>
+						    				</div>
+						    				<!-- 库存计数 Inventory count -->
+						    				<div class="inCo">
+						    					<div class="rgtitle">库存计数</div>
+						    					<div class="incoOp">
+							    					<div class="layui-input-block">
+											    		<input type="radio" name="count" value="买家拍下减库存" checked="" title="买家拍下减库存">
+											    		<input type="radio" name="count" value="买家付款减库存" title="买家付款减库存">
+											    </div>
+											</div>
+						    				</div>
+						    				<!-- 会员打折 Member discountsnt -->
+						    				<div class="meDi">
+						    					<div class="rgtitle">库存计数</div>
+						    					<div class="mediOp">
+							    					<div class="layui-input-block">
+											    		<input type="radio" name="member" value="不参与会员打折" checked="" title="不参与会员打折">
+											    		<input type="radio" name="member" value="参与会员打折" title="参与会员打折">
+											    </div>
+											</div>
+						    				</div>
+					    				</from>
+					    			</div>
+					    		</div>
+					    	</form>
+					</div>
+				    <div class="layui-tab-item" id="coNf">
+				    		<!-- configure -->
+				    		<div class="coNf">
+				    			<div class="confBor" id="confBor">
+				    				<div id="confInput">
+				    					配置
+				    					<input class="test1" type="text"/>
+				    					价格
+				    					<input type="text"/>
+				    					元
+				    				</div>
+				    				<div id="confInput">
+				    					配置
+				    					<input class="test2" type="text"/>
+				    					价格
+				    					<input type="text"/>
+				    					元
+				    				</div>
+				    			</div>
+				    		</div>
+				    		<button onclick="addElementDiv()">添加</button>
+				    </div>
+				    <div class="layui-tab-item">
+				    		<!-- Detailed description -->
+				    		<div class="deDe">
+				    			<div class="dedeTitle"><span>*</span>详情描述</div>
+				    			<textarea id="dedeRichText" style="display: none;"></textarea>
+				    		</div>
+				    </div>
+				    <div class="layui-tab-item" id="baPa">
+				    		<!-- 基本参数 Basic parameters -->
+				    		<div class="bapaTitle">基本参数</div>
+				    		<table id="bapaTable">
+				    			<tr>
+				    				<td>
+				    					<input type="text"/>
+				    				</td>
+				    				<td>
+				    					<input type="text"/>
+				    				</td>
+				    			</tr>
+				    		</table>
+				    		<button onclick="addElementTable()">添加</button>
+				    </div>
+				    <div class="layui-tab-item" id="asPr">
+				    		<!-- 关联产品 Associated products -->
+				    		<form  class="layui-form" action="">
+				    			<div class="layui-input-block" style="margin-left: 0; width: 100%;">
+					      		<select name="interest" lay-filter="aihao">
+							        <option value=""></option>
+							        <option value="0">关联商品一</option>
+							        <option value="1">关联商品二</option>
+							        <option value="2">关联商品三</option>
+							        <option value="3">关联商品四</option>
+							        <option value="4">关联商品五</option>
+					      		</select>
+					    		</div>
+				    		</form>
+				    </div>
+				</div>
+			</div>
+			<button class="layui-btn layui-btn-normal submit">保存</button>
+		</div>
+	</body>
+</html>
