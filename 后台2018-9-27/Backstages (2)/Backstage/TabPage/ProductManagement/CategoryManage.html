@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<link rel="stylesheet" href="../../layui/css/layui.css" />
+		<script type="text/javascript" src="../../layui/layui.js"></script>
+		<style type="text/css">
+			.anniu{margin-top: 15px;margin-left: 15px;}
+			.layui-form{margin-left: -40px;}
+		</style>
+	</head>
+	<body >
+		<div id="app">
+			<div class="anniu">
+				<a href="AddCategory.html" ><button class="layui-btn layui-btn-lg" >添加分类</button></a>
+			</div>
+			<table id="categoryTable" lay-filter="test"></table>
+		</div>
+		<script>
+			var data
+			axios.defaults.baseURL = 'http://120.78.142.125:8080/dg'
+			Vue.prototype.axios = axios
+			var app = new Vue({
+			    el: '#app',
+			    data: {
+				    table:null,
+				    form:null,
+				    that:null
+			    },
+			    mounted: function () {
+			    	//初始化列表
+			  	    this.list(0);
+			  	    //监听删改查按钮
+			  	     that=this;
+			  	    $('#submit').click(function(){
+			  	    	alert(123)
+			  	    	that.addCategory();
+			  	    });
+			  	    layui.use('table',function(){
+				  	    this.table.on('tool(test)', function(obj) { //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
+							data= obj.data; //获得当前行数据
+							var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
+							var tr = obj.tr; //获得当前行 tr 的DOM对象
+							if(layEvent === 'detail') { //查看子分类
+								that.list(data.id);
+							} else if(layEvent === 'del') { //删除
+								layer.confirm('真的删除行么', function(index) {
+									obj.del(); //删除对应行（tr）的DOM结构，并更新缓存
+									layer.close(index);
+									//向服务端发送删除指令
+									axios.get("/manage/category/delete.do",{params:{id:data.id}}).then(function(response){
+										if(response.data.code==0){
+												layer.msg("删除成功");
+											}else{
+												layer.msg("删除失败");
+											}
+									}).catch(function (response){
+										layer.msg("系统错误");
+									});
+								});
+							} else if(layEvent === 'edit') { //编辑
+								//点击编辑弹窗	
+								layer.open({
+									type:'0'
+									,title:'修改分类名字'
+									,content:$('#form').html()
+								});
+								
+								axios.get("/manage/category/getCategory.do",{params:{id:data.id}}).then(function(response){
+									$('#categoryName').val(response.data.data.name);
+									
+								}).catch(function (response){
+									layer.msg("系统错误");
+								});
+								//同步更新缓存对应的值
+								
+							}
+						});
+					});
+			    },//creadte方法结束
+			    methods:{
+				  	list(id){
+				  		layui.use('table', function() {
+				  			table=layui.table;
+				  			table.render({
+								elem: '#categoryTable'
+								,height: 'full-60'
+								,even: true //开启隔行背景
+								,request: {
+								  pageName: 'pageNum' //页码的参数名称，默认：page
+								  ,limitName: 'pageSize' //每页数据量的参数名，默认：limit
+								}
+								,url:'http://120.78.142.125:8080/dg/manage/category/getCategoryList.do?categoryId='+id //数据接口
+								,page: true //开启分页
+								,cols: [
+									[ //表头
+										{field: 'id',title: 'ID',width: 230,sort: true,fixed: 'left',align: 'center'},
+										{field: 'name',title: '分类名',width: 300,align: 'center'},
+										{field: 'status',title: '分类状态',width: 280,sort: true,align: 'center'},
+										{field: 'createTime',title: '创建时间',width: 300,align: 'center',templet:function(d){ return that.formatTime(d.createTime)  }},
+										{field: 'updateTime',title: '修改时间',width: 300,align: 'center',templet:function(d){ return that.formatTime(d.updateTime)  }},
+										{field: 'operation',title: '操作',width: 300,align: 'center',fixed: 'right',toolbar: '#barDemo'}
+									]
+								]
+							});
+				  		});
+				  	},
+				  	addCategoryPopup(){
+				  		layui.use('table', function() {
+				  			layer=layui.layer;
+				  			form=layui.form;
+							layer.open({
+								type:'0'
+								,title:'添加分类'
+								,content:$('#form').html()
+							});
+							$.ajax({
+								type:"get",
+								url:"http://120.78.142.125:8080/dg/manage/category/getCategoryList.do",
+								async:true,
+								success:function(result){
+									var data=result.data;
+									var selectContainer=document.getElementById("selectContainer");		//获取select的父节点
+									selectContainer.innerHTML="";
+									var select=document.createElement("select");
+									select.name="parentId";
+									select.id="parendId";
+									var option = document.createElement("option");      // 创建添加option属性
+									option.setAttribute("value","0");            // 给option的value添加值
+									option.innerText="一级分类";       			// 打印option对应的纯文本 
+									select.appendChild(option);
+									for (var i=0;i<data.length;i++) {
+										var option = document.createElement("option");      // 创建添加option属性
+										option.setAttribute("value",data[i].id);            // 给option的value添加值
+										option.innerText=data[i].name;       			// 打印option对应的纯文本 
+										select.appendChild(option);                         // 给select 添加option子标签
+									}
+									selectContainer.appendChild(select);
+									form.render("select");
+								}
+							});
+						});
+					},
+					//转换时间戳的方法
+					formatTime(v){
+						var date = new Date(v);
+					    var y = date.getFullYear();
+					    var m = date.getMonth()+1;
+					    m = m<10?'0'+m:m;
+					    var d = date.getDate();
+					    d = d<10?("0"+d):d;
+					    var h = date.getHours();
+					    h = h<10?("0"+h):h;
+					    var M = date.getMinutes();
+					    M = M<10?("0"+M):M;
+					    var str = y+"-"+m+"-"+d+" "+h+":"+M;
+					    return str;
+					}
+				  	
+			    }  //methods结束
+			  
+			})
+			
+			function updateCategory(){
+				const params = new URLSearchParams();
+				params.append('categoryId',data.id);
+				params.append('categoryName',$('#categoryName').val());
+				var categoryName=$('#categoryName').val();
+				var that=this;
+				axios.post("/manage/category/set_category_name.do",params).then(function(response){
+					console.log(response.data);
+					if(response.data.code==0){
+						layer.msg("修改分类成功");
+						table.reload('categoryTable', {
+					        page: {
+					          pageNum: 1 //重新从第 1 页开始
+					        }
+					    });
+					}else{
+						layer.msg("修改分类失败");
+					}
+				});
+				
+			}
+			
+			
+		</script>
+		
+		<!--模板代码-->
+		<script type="text/javascript" id="form">
+			<form class="layui-form" action="" >
+				<div class="layui-form-item">
+					<label class="layui-form-label">分类名字</label>
+					<div class="layui-input-block">
+						<input type="text" id="categoryName"  name="categoryName" required  lay-verify="required" placeholder="请输入分类名字" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+				<div class="layui-form-item">
+				    <div class="layui-input-block">
+				       <input type="button" class="layui-btn" value="立即提交" id="submit" onclick="updateCategory()" />
+				       <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+				    </div>
+				</div>
+			</form>
+		</script>
+		<script type="text/html" id="barDemo">
+			<a class="layui-btn layui-btn-xs" lay-event="detail">查看子分类</a>
+			<a class="layui-btn layui-btn-xs" lay-event="edit">修改分类名字</a>
+			<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+		</script>
+	</body>
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<link rel="stylesheet" href="../../layui/css/layui.css" />
+		<script type="text/javascript" src="../../layui/layui.js"></script>
+		<style type="text/css">
+			.layui-form {margin-top: 20px;padding-right: 20px;}
+			.title{font-size: 28px;margin: 20px;margin-top: 15px;display: block;}
+			.layui-input{border-radius: 5px;}
+			.layui-quote-nm{margin-left: 110px;}
+			.editor-item{padding-left: 25px;}
+			.addProductConfig{margin-bottom: 10px;}
+		</style>
+	</head>
+
+	<body>
+		<div id="app">
+			<span class="title">商品管理 - 修改商品</span>
+			<hr />
+			<div class="layui-form" action="">
+				<div class="layui-form-item">
+					<label class="layui-form-label">商品名称</label>
+					<div class="layui-input-block">
+						<input type="text" name="name" v-model="name" required lay-verify="required" placeholder="请输入商品名称" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">商品卖点</label>
+					<div class="layui-input-block">
+						<input type="text" name="subtitle" v-model="subtitle" required lay-verify="required" placeholder="请输入商品描述" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+				<div class="layui-form-item">
+					    <label class="layui-form-label">商品分类</label>
+					    <div class="layui-input-block" id="selectContainer" required>
+					    	
+					    </div>
+				</div>
+				<div class="layui-form-item">
+					    <label class="layui-form-label">商品品牌</label>
+					    <div class="layui-input-block" id="selectBrandContainer" required>
+					    </div>
+				</div>		
+				
+				<div class="layui-form-item " id="productConfigure" ref="productConfigure" v-for="(item,i) in productConfigList" :key="i">
+					<div class="layui-line" style="display: block;" ref="productConfigureInline">
+						<div class="layui-inline">
+						    <label class="layui-form-label">配置</label>
+						    <div class="layui-input-inline" style="width: 200px;">
+						      <input type="text" v-model="productConfigList[0].name"  required autocomplete="off" class="layui-input" placeholder="例 i5/4G/128G SSD/集显">
+						    </div>
+						  </div>
+						  
+						  <div class="layui-inline">
+						    <label class="layui-form-label">价格</label>
+						    <div class="layui-input-inline" style="width: 200px;">
+						      <input type="text" v-model="productConfigList[0].price"  required autocomplete="off" class="layui-input" placeholder="商品配置价格，单位：元">
+						    </div>
+						</div>
+						<div class="layui-inline">
+						    <label class="layui-form-label">库存</label>
+						    <div class="layui-input-inline" style="width: 200px;">
+						      <input type="text" v-model="productConfigList[0].stock" required autocomplete="off" class="layui-input" placeholder="请输入库存">
+						    </div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="layui-form-item">
+					<label class="layui-form-label">商品详情</label>
+					<div class="layui-input-block">
+						<textarea id="editor" name="detail" style="display: none;"  ref="detail" ></textarea>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">运费</label>
+					<div class="layui-input-block">
+						<input type="text" name="postage" v-model="postage" value="" placeholder="请输入商品邮费" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+				<input type="text" name="mainImage" style="display: none;" v-model="mainImage"/>
+				<input type="text" name="subImages" style="display: none;" v-model="subImages"/>
+				<div class="layui-form-item">
+					<div class="layui-input-block">
+						<button class="layui-btn" lay-submit lay-filter="formDemo" @click="updateProduct()" >立即提交</button>
+						<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+					</div>
+				</div>
+				
+				
+				
+			</div>
+		</div>
+		<script>
+
+			axios.defaults.baseURL = 'http://120.78.142.125:8080/dg'
+			Vue.prototype.axios = axios
+			var vm=new Vue({
+				el:"#app",
+				data:{
+					that:null,		//Vue的this
+					name:'',		//商品名字
+					subtitle:'',	//商品描述
+					skuName:'',		//商品配置名
+					categoryId:'',	//分类id
+					brandId:'',		//品牌id
+					mainImage:'',
+					postage:'',
+					subImages:'',	//图片
+					detail:'',	//商品详情
+					layui:null,	//layui框架对象实例
+					index:'',	//富文本编辑器的index
+					layeditContent:'',
+					productConfigList:[
+						{id:'',name:'',price:'',stock:'',hot:''}
+					],
+					product:null
+				},
+				mounted(){
+					//layui框架方法初始化
+					that=this;
+					this.initProduct();
+					this.getCategoryList();
+					this.getBrandList();
+					this.upload();
+				},
+				methods:{
+					initProduct(){
+						var href=location.href+"";
+						var id=href.substring((href.indexOf("id=")+3));
+						axios.get('/manage/product/getProduct.do',{params:{productId:id}}).then(function(response){
+							if(response.data.code==0){
+								var data=response.data.data;
+								that.categoryId=data.categoryId;
+								that.brandId=data.brandId;
+								that.name=data.name;
+								that.subtitle=data.subtitle;
+								that.subImages=data.subImages;
+								that.detail=data.detail;
+								that.postage=data.postage;
+								layui.use('layedit', function(){
+									that.layui=layui;
+								    var layedit = layui.layedit;
+								    that.index=layedit.build('editor',{
+								    	uploadImage: {url: 'http://120.78.142.125:8080/dg/manage/product/upload.do', type: 'post'}
+								    }); //建立编辑器
+
+									that.layui.layedit.setContent(that.index, that.detail);
+
+								});
+
+								that.price=data.price;
+								that.stock=data.stock;
+								that.productConfigList[0].id=data.id;
+								that.productConfigList[0].name=data.skuName;
+								that.productConfigList[0].price=data.price;
+								that.productConfigList[0].stock=data.stock;
+								that.productConfigList[0].hot=data.hot;
+							}else{
+
+								layer=that.layui.layer;
+								layer.msg("获取商品信息失败");
+							}
+						})
+					},
+					getCategoryList(){
+						layui.use('form', function() {
+							form = layui.form;
+							axios.get("/manage/category/getBackCategoryList.do").then(function(response){
+								var list=response.data.data;
+								var selectContainer=document.getElementById("selectContainer");		//获取select的父节点
+								var select = document.createElement("select");
+								select.name="categoryId";
+								select.id="parendId";
+								var option = document.createElement("option");      // 创建添加option属性
+								option.setAttribute("value","0");            // 给option的value添加值
+								option.innerText="请选择商品所属分类";       			// 打印option对应的纯文本 
+								select.appendChild(option);
+								for (var i=0;i<list.length;i++) {
+									var option = document.createElement("option");      // 创建添加option属性
+									option.setAttribute("value",list[i].id);            // 给option的value添加值
+									option.innerText=list[i].name;   
+									if(that.categoryId==list[i].id){
+										option.setAttribute("selected","");
+									}
+									select.appendChild(option);                         // 给select 添加option子标签
+								}
+								selectContainer.appendChild(select);
+								form.render("select");
+							}).catch(function (response){
+								layer.msg("查询分类接口时系统错误");
+							});
+						});
+						
+					},	
+					getBrandList(){
+						layui.use('form', function() {
+							form = layui.form;
+							axios.get("/manage/brand/list.do").then(function(response){
+								var list=response.data.data;
+								var selectContainer=document.getElementById("selectBrandContainer");		//获取select的父节点
+								var select = document.createElement("select");
+								select.name="brandId";
+								for (var i=0;i<list.length;i++) {
+									var option = document.createElement("option");      // 创建添加option属性
+									option.setAttribute("value",list[i].id);            // 给option的value添加值
+									option.innerText=list[i].name;       			// 打印option对应的纯文本 
+									if(that.brandId==list[i].id){
+										option.setAttribute("selected","");
+									}
+									select.appendChild(option);                         // 给select 添加option子标签
+								}
+								selectContainer.appendChild(select);
+								form.render("select");
+							}).catch(function (response){
+								layer.msg("查询品牌列表接口时系统错误");
+							});
+						});
+						
+					},
+					upload(){
+						layui.use('upload',function(){
+							upload=layui.upload;
+							//多图片上传
+							upload.render({
+							    elem: '#test2'
+							    ,url: 'http://120.78.142.125:8080/dg/manage/product/upload.do'
+							    ,multiple: true
+							    ,acceptMime: 'image/*'
+							    ,before: function(obj){
+							      //预读本地文件示例，不支持ie8
+							      obj.preview(function(index, file, result){
+							        $('#demo2').append('<img src="'+ result +'" alt="'+ file.name +'" width="80" height="80" style="margin-right:10px" class="layui-upload-img">')
+							      });
+							    }
+							    ,done: function(res){
+							        //上传完毕
+							        console.log(res);
+							        var src=res.data.src;
+								    if(res.code==0){
+								    	//设置图片路径
+								      	if(that.subImages==''){
+								      		that.subImages=src.substring(src.indexOf("/images/")+8);
+								      	}else{
+								      		that.subImages=that.subImages+","+src.substring(src.indexOf("/images/")+8);
+								      	}
+								      	that.mainImage=that.subImages.substring(0,that.subImages.indexOf(','));
+								      	
+								      	layer.msg("上传成功");
+								    }else{
+								      	layer.msg("上传失败");
+								    }
+							    }
+							    ,error: function(){
+							      //请求异常回调
+							      layer.msg("上传失败，系统错误");
+							    }
+							});
+						});
+					},
+					addProductConfig(){			//添加界面的产品配置
+						var item={name:'',price:'',stock:'',status:'',hot:''};
+						this.productConfigList.push(item);
+					},
+					updateProduct(){		//更新商品
+						layui.use('form', function() {
+							var form = layui.form;
+							//监听提交
+							form.on('submit(formDemo)', function(data) {
+								const params = new URLSearchParams();
+								params.append('productSKU.id',that.id);
+								params.append('name',data.field.name);
+								params.append('subtitle',data.field.subtitle);
+								params.append('categoryId',data.field.categoryId);
+								params.append('brandId',data.field.brandId);
+								params.append('detail',that.layui.layedit.getContent(that.index));
+								params.append('postage',data.field.postage);
+								
+								if(data.field.categoryId==0){
+									layer.msg('请选择商品所属分类');
+									return;
+								}
+								if(data.field.brandId==0){
+									layer.msg('请选择商品所属品牌');
+									return;
+								}
+
+								params.append('productSKUJson',JSON.stringify(that.productConfigList[0]));
+								axios.post("/manage/product/update.do",params).then(function(response){
+									if(response.data.code==0){
+										console.log(that.productConfigList);
+										   layer.msg("修改产品成功");
+									}
+								});
+							});
+						});
+					}
+				}
+			})
+			
+		</script>
+	</body>
+
+</html>

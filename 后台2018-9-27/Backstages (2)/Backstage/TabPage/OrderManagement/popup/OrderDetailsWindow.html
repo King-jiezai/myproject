@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../../../jq/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.wrapper {
+				display: flex;
+				margin: 0 auto;
+				margin-top: 10px;
+				padding: 15px 10px;
+				width: 700px;
+				height: 230px;
+			}
+			
+			.Lf {
+				width: 500px;
+				height: 100%;
+			}
+			
+			.LfTop {
+				display: flex;
+				height: 30px;
+				line-height: 30px;
+				color: #666666;
+				font-size: 14px;
+			}
+			
+			.Name {
+				padding-left: 20px;
+				width: 230px;
+			}
+			
+			.Phone {
+				width: 250px;
+			}
+			
+			.LfBottom {
+				padding-left: 20px;
+				width: 480px;
+				height: 180px;
+			}
+			
+			.LfBottomTop {
+				display: flex;
+				padding-top: 10px;
+			}
+			
+			.Title {
+				line-height: 30px;
+				color: #666666;
+				font-size: 14px;
+			}
+			
+			textarea {
+				resize: none;
+				padding: 20px 10px;
+				width: 320px;
+				height: 130px;
+				line-height: 25px;
+				background: #eaeaea;
+				border: #e0e0e0 solid 1px;
+				border-radius: 5px;
+				color: #666666;
+				font-size: 14px;
+				word-wrap: break-word;
+			}
+			
+			.limitnum {
+				width: 410px;
+				text-align: right;
+				line-height: 25px;
+				color: #666666;
+				font-size: 14px;
+			}
+			
+			.Rg {
+				width: 200px;
+				background: 100%;
+			}
+			
+			.tag {
+				padding: 10px 5px;
+				width: 188px;
+				height: 208px;
+				border: 1px solid #e0e0e0;
+				background-color: #fff5e6;
+				border-radius: 5px;
+				color: #666666;
+				font-size: 14px;
+				word-wrap: break-word;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="wrapper">
+
+			<div class="Lf">
+
+				<div class="LfTop">
+					<div class="Name">买家姓名：<span></span></div>
+					<div class="Phone">手机号码：<span></span></div>
+				</div>
+
+				<div class="LfBottom">
+					<div class="LfBottomTop">
+						<div class="Title">短信内容：</div>
+						<textarea rows="7" maxlength="120" placeholder="短信内容">您好亲，您的订单还没付款哦，这个宝贝我们已经给您预留了，每天下午  5  点前付款会当天发货的哦~</textarea>
+					</div>
+					<div class="limitnum"><span class="word">0</span>/120字</div>
+				</div>
+
+			</div>
+
+			<div class="Rg">
+
+				<div class="tag"></div>
+
+			</div>
+
+		</div>
+	</body>
+	<script type="text/javascript">
+		window.onload = function limitnum() {
+			var limitnumval = $("textarea").val()
+			var limitnumleng = $("textarea").val().length
+			$(".word").html(limitnumleng)
+			$(".tag").html("【广租租赁商城】"+limitnumval)
+		}
+		$("textarea").keyup(function() {  //鼠标抬起事件
+
+			var num = $(this).val().length;  //获取输入的字数，注意textarea是通过val()来获取的。不是html啊啊啊
+			var limitnumval = $(this).val()
+			
+			if(num <= 120) {
+				num = num;
+			}   //当字数小于50，数字不变
+			else {
+				$(num).substr(0, 120)
+			}   //当字数大于50，截取前面50个字
+			   
+			$(".word").html(num) //把最后获取到的字数，显示出来
+			$(".tag").html("【广租租赁商城】"+limitnumval)
+		});
+	</script>
+
+</html>

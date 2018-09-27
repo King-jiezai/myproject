@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/MemberList.css" />
+		<link rel="stylesheet" type="text/css" href="../../layui/css/layui.css" media="all" />
+		<script src="../../jq/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../layui/layui.js"></script>
+		<script src="../../jq/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/MemberList.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+
+		<div class="wrapper">
+			<!-- Small Content -->
+			<div class="smCom">
+				<!-- Today Member Birthday -->
+				<div class="toMemBir">
+					<div class="tmbTop">
+						<div>今天过生日的会员</div>
+					</div>
+					<div class="tmbCon">
+						<span>0</span>位
+					</div>
+					<div class="tmbBo">本月还有<span>0</span>过生日</div>
+				</div>
+				<!-- Member Total -->
+				<div class="memTo">
+					<div class="mtTop">
+						<div class="mtLf">会员总数</div>
+						<div class="mtRg">储值卡总额：1590754.16</div>
+					</div>
+					<div class="mtCon">
+						<span>176</span>位
+					</div>
+					<div class="mtBo">平均每日新增 > <span>0.28</span>位会员</div>
+				</div>
+				<!-- Accumulative Consumption -->
+				<div class="acCons">
+					<div class="acTop">
+						<div class="aclf">累计消费</div>
+					</div>
+					<div class="acCon">
+						<span>1956713.22</span>位
+					</div>
+					<div class="acBo">
+						<div class="acboLf">
+							<span>176</span>位会员,消费订单<span>81</span>笔
+							<br /> 平均消费
+							<span>11117.69</span>元
+						</div>
+						<div class="acboRg curpoi">详情</div>
+					</div>
+				</div>
+				<!-- Consumption Ranking List -->
+				<div class="conRanList">
+					<div class="crlTop">
+						<div class="crllf">消费会员(TOP3)</div>
+					</div>
+					<div class="raLi layui-clear">
+						<div class="liLf">1.董先生</div>
+						<div class="liRg"><span>872425.05</span>元</div>
+					</div>
+					<div class="raLi layui-clear">
+						<div class="liLf">2.董先生</div>
+						<div class="liRg"><span>1561</span>元</div>
+					</div>
+					<div class="raLi layui-clear">
+						<div class="liLf">3.董先生</div>
+						<div class="liRg"><span>446</span>元</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- 会员信息 -->
+			<div class="MemberWrapper">
+				<!-- 表格表头 -->
+				<div class="tableName">
+					<div class="checkbox"><input type="checkbox"/></div>
+					<div class="LfBoBor Id">ID</div>
+					<div class="LfBoBor credit">信用值</div>
+					<div class="LfBoBor source">注册来源</div>
+					<div class="LfBoBor fullName">真实姓名</div>
+					<div class="LfBoBor username">昵称</div>
+					<div class="LfBoBor phone">手机号码</div>
+					<div class="LfBoBor email">邮箱</div>
+					<div class="LfBoBor sex">性别</div>
+					<div class="LfBoBor create_time">更新时间</div>
+					<div class="LfBoBor update_time">修改时间</div>
+					<div class="LfBoBor operation">操作</div>
+				</div>
+				<div class="line">
+					<div class="checkbox"><input type="checkbox"/></div>
+					<div class="LfBoBor Id">123</div>
+					<div class="LfBoBor credit">123</div>
+					<div class="LfBoBor source">123</div>
+					<div class="LfBoBor fullName">123</div>
+					<div class="LfBoBor username">123</div>
+					<div class="LfBoBor phone">123</div>
+					<div class="LfBoBor email">123</div>
+					<div class="LfBoBor sex">男</div>
+					<div class="LfBoBor create_time">123</div>
+					<div class="LfBoBor update_time">123</div>
+					<div class="LfBoBor operation">123</div>
+				</div>
+				<div class="line">
+					<div class="checkbox"><input type="checkbox"/></div>
+					<div class="LfBoBor Id">123</div>
+					<div class="LfBoBor credit">123</div>
+					<div class="LfBoBor source">123</div>
+					<div class="LfBoBor fullName">123</div>
+					<div class="LfBoBor username">123</div>
+					<div class="LfBoBor phone">123</div>
+					<div class="LfBoBor email">123</div>
+					<div class="LfBoBor sex">男</div>
+					<div class="LfBoBor create_time">123</div>
+					<div class="LfBoBor update_time">123</div>
+					<div class="LfBoBor operation">123</div>
+				</div>
+				<div class="line">
+					<div class="checkbox"><input type="checkbox"/></div>
+					<div class="LfBoBor Id">123</div>
+					<div class="LfBoBor credit">123</div>
+					<div class="LfBoBor source">123</div>
+					<div class="LfBoBor fullName">123</div>
+					<div class="LfBoBor username">123</div>
+					<div class="LfBoBor phone">123</div>
+					<div class="LfBoBor email">123</div>
+					<div class="LfBoBor sex">男</div>
+					<div class="LfBoBor create_time">123</div>
+					<div class="LfBoBor update_time">123</div>
+					<div class="LfBoBor operation">123</div>
+				</div>
+			</div>
+			
+			<div id="pagingNav"></div>
+			
+	</body>
+
+</html>

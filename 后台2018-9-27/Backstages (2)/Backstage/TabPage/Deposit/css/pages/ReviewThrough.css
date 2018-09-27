@@ -1,0 +1,323 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	background: #f3f5f8;
+}
+.curpoi{
+	cursor: pointer;
+}
+.wrapper{
+	margin: 0 auto;
+	width: 1200px;
+	padding: 10px 5px;
+	margin-bottom: 100px;
+}
+/* 网站大标题 */
+.IndexTitle{
+	text-align: center;
+	font-size: 20px;
+	color: #585858;
+}
+/* 内容表格 */
+.coTable{
+	margin: 0 auto;
+	margin-top: 20px;
+	width: 1160px;
+	height: 141px;
+	border: #dfdede solid 1px;
+}
+/* 第一行 */
+.coTable_One{
+	display: flex;
+	width: 100%;
+	height: 47px;
+}
+.coTable_One div{
+	color: #585858;
+	font-size: 12px;
+ 	text-align: center;
+ 	height: 46;
+	line-height: 46px;
+	border-bottom: #dfdede solid 1px;
+}
+.Table_BgColor{
+	background: #edecec;
+}
+.LfRg_Border{
+	border-left: #dfdede solid 1px;
+	border-right: #dfdede solid 1px;
+}
+/* 法人姓名 */
+.Legal_Name{
+	width: 100px;
+}
+.LeName{
+	width: 110px;
+}
+/* 法人联系电话 */
+.Legal_Phone{
+	width: 110px;
+}
+.LePhone{
+	width: 120px;
+}
+/* 法人身份号 */
+.Legal_Id{
+	width: 109.6px;
+}
+.LeId{
+	width: 159.7px;
+}
+/* 紧急联系人 */
+.Urgent_Name{
+	width: 100px;
+}
+.UrName{
+	width: 110px;
+}
+/* 紧急联系电话 */
+.Urgent_Phone{
+	width: 100px;
+}
+.UrPhone{
+	width: 140px;
+	border-right: 0;
+}
+/* 第二行 */
+.coTable_Two{
+	display: flex;
+	width: 100%;
+	height: 47px;
+}
+.coTable_Two div{
+	color: #585858;
+	font-size: 12px;
+ 	text-align: center;
+ 	height: 46;
+	line-height: 46px;
+	border-bottom: #dfdede solid 1px;
+}
+/* 公司名称 */
+.Company_Name{
+	width: 100px;
+}
+.CoName{
+	width: 339.5px;
+}
+/* 统一社会信用代码 */
+.Credit_Code{
+	width: 109.3px;
+}
+.CrCode{
+	width: 370px;
+}
+/* 成立时间 */
+.Establish_Time{
+	width: 100.3px;
+}
+.EsTime{
+	width: 139px;
+	border-right: 0;
+}
+/* 第三行 */
+.coTable_Three{
+	display: flex;
+	width: 100%;
+	height: 47px;
+}
+.coTable_Three div{
+	color: #585858;
+	font-size: 12px;
+ 	text-align: center;
+ 	height: 46;
+	line-height: 47px;
+}
+/* 企业地址 */
+.AddRess{
+	width: 99px;
+}
+.ARess{
+	width: 1059.5px;
+	border-right: 0;
+}
+
+/* 证件照 */
+.IdPhoto{
+	margin: 0 auto;
+	margin-top: 30px;
+	width: 1100px;
+	height: 600px;
+}
+/* 证件照第一行 */
+.IdPhoto_One{
+	display: flex;
+	width: 1100px;
+	height: 250px;
+}
+
+/* 左边 */
+.IdPhOn_Lf{
+	display: flex;
+	justify-content: space-between;
+	width: 550px;
+	height: 250px;
+}
+.Lf_Title{
+	padding: 110px 10px;
+	width: 130px;
+	height: 30px;
+	font-size: 12px;
+	text-align: center;
+	color: #585858;
+}
+.Lf_Img_One{
+	border: #dfdede solid 1px;
+	width: 185px;
+	height: 250px;
+}
+.Lf_Img_Two{
+	border: #dfdede solid 1px;
+	width: 185px;
+	height: 250px;
+}
+/* 图片 */
+.Img{
+	padding: 20px 25px;
+	width: 135px;
+	height: 180px;
+}
+.Img .FaceImage{
+	box-shadow: 0px 1px 10px #666666;
+}
+.Img .BackImage{
+	box-shadow: 0px 1px 10px #666666;
+}
+.Img .AuthorizationImage{
+	box-shadow: 0px 1px 10px #666666;
+}
+.Img .ReportImage{
+	box-shadow: 0px 1px 10px #666666;
+}
+.Img .Account1Image{
+	box-shadow: 0px 1px 10px #666666;
+}
+.Img .Account2Image{
+	box-shadow: 0px 1px 10px #666666;
+}
+.Img .LicenseImage{
+	box-shadow: 0px 1px 10px #666666;
+}
+.Img img{
+	width: 135px;
+	height: 180px;
+	position: relative;
+	z-index: 1;
+	
+}
+/* 图片下方按钮 */
+.Img_Buttom{
+	display: flex;
+	justify-content: space-around;
+	background: #e3e3e3;
+}
+.Img_Buttom .layui-icon{
+	font-size: 20px;
+}
+/* 查看图片 */
+.SeeImg{
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	color: #999999;
+}
+.SeeImg:hover .layui-icon{
+	color: #e60012;
+}
+/* 下载图片 */
+.DownloadImg{
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	color: #999999;
+}
+.DownloadImg:hover .layui-icon{
+	color: #e60012;
+}
+
+/* 右边 */
+.IdPhOn_Rg{
+	display: flex;
+	justify-content: space-between;
+	width: 550px;
+	height: 250px;
+}
+.Rg_Title{
+	padding: 110px 10px;
+	width: 130px;
+	height: 30px;
+	font-size: 12px;
+	text-align: center;
+	color: #585858;
+}
+.Rg_Img_One{
+	border: #dfdede solid 1px;
+	width: 185px;
+	height: 250px;
+}
+.Rg_Img_Two{
+	border: #dfdede solid 1px;
+	width: 185px;
+	height: 250px;
+}
+
+/* 证件照第二行 */
+.IdPhoto_Two{
+	margin-top: 20px;
+	display: flex;
+	width: 1100px;
+	height: 250px;
+}
+
+/* 左边 */
+.IdPhTw_Lf{
+	display: flex;
+	justify-content: space-between;
+	width: 550px;
+	height: 250px;
+}
+
+/* 右边 */
+.IdPhTw_Rg{
+	display: flex;
+	justify-content: space-between;
+	width: 350px;
+	height: 250px;
+}
+
+/* 押金状态选择 */
+.deCh{
+	margin: 0 auto;
+	margin-top: 70px;
+	width: 350px;
+	height: 34px;
+}
+.layui-form-radio{
+	margin: 6px 0 0 10px !important;
+}
+.deCh_tg {
+	float: left;
+}
+.deCh_sh {
+	float: left;
+}
+.DepositFree {
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	font-size: 22px;
+}

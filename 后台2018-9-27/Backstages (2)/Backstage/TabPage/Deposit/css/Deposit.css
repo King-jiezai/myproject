@@ -1,0 +1,198 @@
+/* 网站包裹器 */
+.deWrapper{
+	padding: 5px 1%;
+	width: 98%;
+	height: 100%;
+	min-width: 1200px;
+}
+
+/* 顶部数据框 */
+.dataBox{
+	margin: 0 auto;
+	width: 100%;
+	height: 150px;
+	background: orange;
+}
+/* 数据内容 */
+.daCo{
+	float: left;
+	margin-left: 2.5%;
+	width: 23%;
+	height: 146px;
+	background: #FFFFFF;
+	border: #EEEEEE solid 2px;
+	border-radius: 5px;
+}
+/* 第一个数据框 */
+.daCo:first-child{
+	margin-left: 0;
+}
+/* 第四个数据框 */
+.daCo:last-child{
+	float: right;
+	margin-left: 0;
+}
+/* 数据框标题 */
+.daCoTitle{
+	padding-left: 4%;
+	width: 96%;
+	height: 20px;
+	line-height: 20px;
+	font-size: 12px;
+	color: #666666;
+}
+/* 数据框数据 */
+.daBoData{
+	width: 100%;
+	height: 86px;
+	line-height: 86px;
+	color: #e70012;
+	text-align: center;
+}
+.daBoData span{
+	font-size: 34px;
+}
+/* 详情点击按钮 */
+.daCoDe{
+	padding-top: 5px;
+	padding-left: 85%;
+	width: 15%;
+	height: 35px;
+}
+.deButtom{
+	width: 40px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	color: #FFFFFF;
+	background: #2595d3;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+/* 查询操作 */
+.quOp{
+	margin: 0 auto;
+	margin-top: 10px;
+	width: 100%;
+	height: 35px;
+}
+/* 查询框 */
+.query{
+	width: 230px;
+	height: 35px;
+}
+.query input{
+	width: 160px;
+	height: 33px;
+	border: #EEEEEE solid 1px;
+	border-radius: 5px;
+	text-indent: 10px;
+}
+.query span{
+	padding: 9.5px 12px;
+	background: #2595d3;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.query span .layui-icon{
+	font-size: 18px;
+	color: #FFFFFF;
+}
+
+/* 数据展示层 */
+.daEx{
+	margin: 0 auto;
+	width: 100%;
+	height: 700px;
+}
+/* 申请免押金信息 */
+.MemberWrapper{
+	margin-top: 15px;
+	width: 100%;
+	border: #e6e6e6 solid 1px;
+}
+/* 表格表头 */
+.tableName{
+	display: flex;
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	background: #f2f2f2;
+	color: #666666;
+}
+/* 选项框 */
+.checkbox{
+	width: 2%;
+	text-align: center;
+	border-bottom: #e6e6e6 solid 1px;
+}
+/* Id */
+.Id{
+	padding-left: 0.5%;
+	width: 10%;
+}
+/* 姓名 */
+.name{
+	padding-left: 0.5%;
+	width: 10%;
+}
+/* 手机号码 */
+.phone{
+	padding-left: 0.5%;
+	width: 10%;
+}
+/* 企业名称 */
+.enterpriseName{
+	padding-left: 0.5%;
+	width: 25%;
+}
+/* 申请人 */
+.LfName {
+	padding-left: 0.5%;
+	width: 10%;
+}
+/* 状态 */
+.stauts{
+	padding-left: 0.5%;
+	width: 10%;
+}
+/* 申请时间 */
+.applyTime{
+	padding-left: 0.5%;
+	width: 10%;
+}
+/* 操作 */
+.operation{
+	padding-left: 1.5%;
+	width: 5%;
+	cursor: pointer;
+}
+.operation span {
+	color: #2794CF;
+}
+.operation span:last-child {
+	margin-left: 15px;
+	color: #e60012;
+}
+/* 左边、下面-border */
+.LfBoBor{
+	border-left: #e6e6e6 solid 1px;
+	border-bottom: #e6e6e6 solid 1px;
+}
+/* 数据行 */
+.line{
+	display: flex;
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	color: #666666;
+}
+.line:last-child .checkbox{
+	border-bottom: 0;
+}
+.line:last-child .LfBoBor{
+	border-left: #e6e6e6 solid 1px;
+	border-bottom: 0;
+}
+

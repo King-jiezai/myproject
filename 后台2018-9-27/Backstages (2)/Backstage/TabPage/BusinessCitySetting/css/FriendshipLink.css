@@ -1,0 +1,30 @@
+/* 内容包裹器 */
+.wrapper{
+	padding: 5px 0;
+	width: 100%;
+	background: orange;
+}
+
+/* 顶部标题 */
+.TopTitle{
+	width: 100%;
+	height: 35px;
+	line-height: 35px;
+	text-indent: 10px;
+	color: #666666;
+	background: #cd00cd;
+	border-bottom: #EDECEC solid 1px;
+}
+
+/* 链接输入包裹器 */
+.linkWrapper{
+	margin-top: 5px;
+	padding: 5px 0;
+	width: 100%;
+	background: #AEB9C2;
+}
+/* 链接输入框 */
+.linkInput{
+	display: inline;
+	background: #2595D3;
+}

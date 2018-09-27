@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="../../layui/css/layui.css"/>
+	<link rel="stylesheet" type="text/css" href="css/ProductManagement.css"/>
+	<script src="../../layui/layui.js"></script>
+	<script src="js/ProductManagement.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<style>
+	.wrapper{margin-top: 10px}
+	.layui-btn-group{float: right;}
+	.layui-form-label{font-size: 24px;}
+	.layui-input{width: 200px;float: left;margin-left: 5px;}
+	.form-control{float: left;height: 34px;margin-top:2px;padding: 6px 12px;background-color: #fff;background-image: none;border: 1px solid #ccc;border-radius: 4px;color: #555;}
+	.search{float: left;margin-left: 5px;}
+	.status{width: 60px;height:28px;line-height: 28px;align-content: center;}
+</style>
+</head>
+<body>
+	<div id="app">
+		<div class="wrapper">
+			<div class="searchContail">
+				<select class="form-control" v-model="flag">
+					<option value="id" selected="" >按商品id查询</option>
+					<option value="name" >按商品名称查询</option>
+				</select>
+				<input type="text" name="title" required lay-verify="required" v-model="inputValue" placeholder="请输入关键字" autocomplete="off" class="layui-input"> 
+				<button class="layui-btn search" @click="search">查询</button>
+			</div>
+			<div class="layui-btn-group">
+				<a href="AddProducts.html"><button class="layui-btn  layui-btn-lg">添加产品</button></a>
+			</div>
+			
+			<div class="layui-clear"></div>
+			<table id="productTable" lay-filter="test"></table>
+		</div>
+	</div>
+	
+</body>
+
+<script>
+	axios.defaults.baseURL = 'http://120.78.142.125:8080/dg'
+	Vue.prototype.axios = axios
+	var app=new Vue({
+		el:"#app",
+		data:{
+			that:null,
+			layui:null,
+			flag:'id',
+			inputValue:''
+		},
+		mounted(){
+			that=this;
+			this.list('http://120.78.142.125:8080/dg/manage/product/list.do');
+			
+		},
+		methods:{
+			list(path){
+				layui.use('table', function(){
+					var table = layui.table;
+					that.layui=layui;
+					  //第一个实例
+					  table.render({
+					  	elem: '#productTable'
+					  	,height: 'full-60'
+							,even: true //开启隔行背景
+							,limit : 15
+							,limits : [15, 30, 45, 60, 75]
+							,request: {
+							  pageName: 'pageNum' //页码的参数名称，默认：page
+							  ,limitName: 'pageSize' //每页数据量的参数名，默认：limit
+							}
+							,url:path //数据接口
+							,page: true //开启分页
+						    ,cols: [[ //表头
+						    {field: 'id', title: 'ID', width:80, sort: true, fixed: 'left',align: 'center'}
+						    ,{field: 'name', title: '商品名', width:320,align: 'center'}
+						    ,{field: 'price', title: '价格', sort: true, width:130,align: 'center'}
+						    ,{field: 'status', title: '状态', sort: true, width:120,align: 'center',templet:function(d){if(d.status==1){return '上架'}else{return '<span style="color:#FFB800">下架</span>'}}}
+						    ,{field: 'stock', title: '库存', sort: true, width: 120,align: 'center'}
+						    ,{field: 'hot', title: '热搜', sort: true, width: 100,align: 'center',templet:function(d){if(d.status==1){return '是'}else{return '<span style="color:#FFB800">否</span>'}}}
+						    ,{field: 'salesVolume', title: '销量', sort: true, width: 120,align: 'center'}
+						    ,{field: 'clicks', title: '点击率', sort: true, width: 120,align: 'center'}
+						    ,{field: 'createTime', title: '创建时间', width: 180,align: 'center',templet:function(d){ return that.formatTime(d.createTime)  }}
+						    ,{field: 'updateTime', title: '修改时间', width: 180,align: 'center',templet:function(d){ return that.formatTime(d.updateTime)  }}
+						    ,{field: 'operation',title: '操作',width: 200,align: 'center',fixed: 'right',toolbar: '#barDemo'}
+						    ]]
+						});
+					});
+				},	//list方法结束
+				formatTime(v){		//转换时间戳的方法
+					var date = new Date(v);
+					var y = date.getFullYear();
+					var m = date.getMonth()+1;
+					m = m<10?'0'+m:m;
+					var d = date.getDate();
+					d = d<10?("0"+d):d;
+					var h = date.getHours();
+					h = h<10?("0"+h):h;
+					var M = date.getMinutes();
+					M = M<10?("0"+M):M;
+					var str = y+"-"+m+"-"+d+" "+h+":"+M;
+					return str;
+				},
+				search(){
+					if(this.flag=='id'){
+						this.list('http://120.78.142.125:8080/dg/manage/product/search.do?productId='+this.inputValue);
+					}else{
+						this.list('http://120.78.142.125:8080/dg/manage/product/search.do?productName='+this.inputValue);
+					}
+				}
+				
+			}
+		})
+	
+	
+		//监听工具条
+		layui.use('table',function(){
+			table=layui.table;
+			  table.on('tool(test)', function(obj){ //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
+			  var data = obj.data; //获得当前行数据
+			  var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
+			  var tr = obj.tr; //获得当前行 tr 的DOM对象
+			  
+			  if(layEvent === 'status'){ //上下架
+			  	if(data.status==1){
+			  		axios.get('/manage/product/setProductStatus.do',{params:{productId:data.id,status:2}}).then(function(response){
+			  			console.log(response.data);
+			  			if(response.data.code==0){
+			  				table.reload('productTable');
+			  				layer.msg("下架成功");
+
+			  			}else{
+			  				layer.msg("下架失败");
+			  			}
+			  		});
+			  	}else{
+			  		axios.get('/manage/product/setProductStatus.do',{params:{productId:data.id,status:1}}).then(function(response){
+			  			if(response.data.code==0){
+			  				table.reload('productTable');
+			  				layer.msg("上架成功");
+			  			}else{
+			  				layer.msg("上架失败");
+			  			}
+			  		})
+			  	}
+			  	
+			  } else if(layEvent === 'del'){ //删除
+			  	layer.confirm('真的删除该商品么', function(index){
+			      obj.del(); //删除对应行（tr）的DOM结构，并更新缓存
+			      layer.close(index);
+			      //向服务端发送删除指令
+			      axios.get("/manage/product/delete.do",{params:{productId:data.id}}).then(function(response){
+			      	if(response.data.code==0){
+			      		layer.msg("删除成功");
+			      	}else{
+			      		layer.msg("删除失败");
+			      	}
+			      }).catch(function(){
+			      	layer.msg("系统出错");
+			      })
+			  });
+			  } else if(layEvent === 'edit'){ //编辑
+			  	window.location.href="updateProducts.html?&id="+data.id;
+			  }
+			});
+			});
+		
+		
+		</script>
+
+		<script type="text/html" id="barDemo">
+			<a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+			<a class="layui-btn layui-btn-xs" lay-event="del">删除</a>
+			<a class="layui-btn layui-btn-xs" lay-event="status">上/下架</a>
+		</script>
+		
+		</html>

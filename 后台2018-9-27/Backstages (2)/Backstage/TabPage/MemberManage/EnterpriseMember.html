@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/MemberList.css" />
+		<link rel="stylesheet" type="text/css" href="../../layui/css/layui.css" media="all" />
+		<script src="../../layui/layui.js"></script>
+	</head>
+
+	<body>
+
+		<div class="wrapper">
+			<!-- Small Content -->
+			<div class="smCom">
+				<!-- Today Member Birthday -->
+				<div class="toMemBir">
+					<div class="tmbTop">
+						<div>今天过生日的会员</div>
+					</div>
+					<div class="tmbCon">
+						<span>0</span>位
+					</div>
+					<div class="tmbBo">本月还有<span>0</span>过生日</div>
+				</div>
+				<!-- Member Total -->
+				<div class="memTo">
+					<div class="mtTop">
+						<div class="mtLf">会员总数</div>
+						<div class="mtRg">储值卡总额：1590754.16</div>
+					</div>
+					<div class="mtCon">
+						<span>176</span>位
+					</div>
+					<div class="mtBo">平均每日新增 > <span>0.28</span>位会员</div>
+				</div>
+				<!-- Accumulative Consumption -->
+				<div class="acCons">
+					<div class="acTop">
+						<div class="aclf">累计消费</div>
+					</div>
+					<div class="acCon">
+						<span>1956713.22</span>位
+					</div>
+					<div class="acBo">
+						<div class="acboLf">
+							<span>176</span>位会员,消费订单<span>81</span>笔
+							<br /> 平均消费
+							<span>11117.69</span>元
+						</div>
+						<div class="acboRg curpoi">详情</div>
+					</div>
+				</div>
+				<!-- Consumption Ranking List -->
+				<div class="conRanList">
+					<div class="crlTop">
+						<div class="crllf">消费会员(TOP3)</div>
+					</div>
+					<div class="raLi layui-clear">
+						<div class="liLf">1.董先生</div>
+						<div class="liRg"><span>872425.05</span>元</div>
+					</div>
+					<div class="raLi layui-clear">
+						<div class="liLf">2.董先生</div>
+						<div class="liRg"><span>1561</span>元</div>
+					</div>
+					<div class="raLi layui-clear">
+						<div class="liLf">3.董先生</div>
+						<div class="liRg"><span>446</span>元</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="demoTable">
+				搜索ID：
+				<div class="layui-inline">
+					<input class="layui-input" name="id" id="demoReload" autocomplete="off">
+				</div>
+				<button class="layui-btn" data-type="reload">搜索</button>
+			</div>
+
+			<table class="layui-hide layui-table" id="LAY_table_user" lay-data="{id:'idTest'}" lay-filter="user"></table>
+
+		</div>
+
+		<script type="text/html" id="barDemo">
+			<a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">冻结</a>
+			<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+		</script>
+
+		<script>
+			layui.use('table', function() {
+			var table = layui.table;
+
+			//方法级渲染
+			table.render({
+					elem: '#LAY_table_user',
+					url: 'http://120.78.142.125:8080/dg/manage/user/enterpriseList.do',
+					cols: [
+						[{
+							checkbox: true
+						}, {
+							field: 'id',
+							title: 'ID',
+							unresize: true
+						}, {
+							field: 'credit',
+							title: '信用值',
+							unresize: true
+						}, {
+							field: 'source',
+							title: '注册来源',
+							unresize: true
+						}, {
+							field: 'username',
+							title: 'username',
+							unresize: true
+						}, {
+							field: 'phone',
+							title: '手机号码',
+							unresize: true
+						}, {
+							field: 'role',
+							title: '用户级别',
+							unresize: true
+						}, {
+							field: 'customerManager',
+							title: 'customerManager',
+							unresize: true
+						}, {
+							field: 'update_time',
+							title: 'update_time',
+							width: 190,
+							unresize: true
+						}, {
+							field: 'update_time',
+							title: 'update_time',
+							width: 190,
+							unresize: true
+						}, {
+							title: '操作',
+							align: 'center',
+							toolbar: '#barDemo'
+						}]
+					],
+					id: 'testReload',
+					page: true
+					});
+
+				var $ = layui.$,
+					active = {
+						reload: function() {
+							var demoReload = $('#demoReload');
+
+							//执行重载
+							table.reload('testReload', {
+								page: {
+									curr: 1 //重新从第 1 页开始
+								},
+								where: {
+									key: {
+										id: demoReload.val()
+									}
+								}
+							});
+						}
+					};
+
+				//监听表格复选框选择
+				table.on('checkbox(user)', function(obj) {
+					console.log(obj)
+				});
+				//监听工具条
+				table.on('tool(user)', function(obj) {
+					var data = obj.data;
+					if(obj.event === 'detail') {
+						layer.msg('账号' + data.id + '已冻结');
+					} else if(obj.event === 'del') {
+						layer.confirm('账号真的删除？', function(index) {
+							obj.del();
+							layer.close(index);
+						});
+					}
+				});
+
+				$('.demoTable .layui-btn').on('click', function() {
+					var type = $(this).data('type');
+					active[type] ? active[type].call(this) : '';
+				});
+			});
+		</script>
+
+	</body>
+
+</html>

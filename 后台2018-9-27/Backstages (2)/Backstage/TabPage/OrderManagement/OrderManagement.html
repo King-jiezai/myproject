@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/OrderManagement.css"/>
+		<link rel="stylesheet" type="text/css" href="css/State.css"/>
+		<link rel="stylesheet" type="text/css" href="../../layui/css/layui.css"/>
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css"/>
+		<script src="../../layui/layui.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/OrderManagement.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../jq/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<!-- 前三个月订单信息加载js -->
+		<script src="js/AllOrders.js" type="text/javascript" charset="utf-8"></script>
+		<!-- 待付款 -->
+		<script src="js/WFPstate.js" type="text/javascript" charset="utf-8"></script>
+		<!-- 待发货 -->
+		<script src="js/WFstate.js" type="text/javascript" charset="utf-8"></script>
+		<!-- 已发货 -->
+		<script src="js/Alstate.js" type="text/javascript" charset="utf-8"></script>
+		<!-- 交易完成 -->
+		<script src="js/TrCostate.js" type="text/javascript" charset="utf-8"></script>
+		<!-- 交易关闭 -->
+		<script src="js/TrClstate.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="search">
+				<!-- 订单号 Order number -->
+				<div class="orNu">
+					订单号<input id="inOrderNo" type="text" placeholder="请输入订单号" />
+					<span class="curpoi" onclick="OrderQuery()">查询</span>
+				</div>
+				<div class="return" onclick="Renderer()">显示所有订单</div>
+			</div>
+			<!-- 内容包裹框 content wrapper -->
+			<div class="coWr">
+				<!-- 选择框 Selection box -->
+				<div class="seBo">
+					<input class="curpoi" type="checkbox" /><span>本页全选</span>
+					<input class="curpoi" type="checkbox" /><span>不显示已关闭订单</span>&nbsp;<i class="curpoi">(123)</i>
+				</div>
+				<!-- 订单状态选择器 Order state selector -->
+				<div class="layui-tab layui-tab-brief">
+					<ul class="layui-tab-title">
+						    <li class="layui-this">近三个月(123)</li>
+							<li onclick="WFPgetListData()">待付款</li>
+							<li onclick="WFgetListData()">待发货</li>
+							<li onclick="AlgetListData()">已发货</li>
+							<li onclick="TrCogetListData()">交易完成</li>
+							<li onclick="TrClgetListData()">已关闭</li>
+					</ul>
+					<div class="layui-tab-content">
+						<div id="One" class="layui-tab-item layui-show">
+							<div id="ContentOne"></div>
+							<div id="PageNumberOne"></div>
+						</div>
+						<div id="Two" class="layui-tab-item">
+							<div id="ContentTwo"></div>
+							<div id="PageNumberTwo"></div>
+						</div>
+						<div id="Three" class="layui-tab-item">
+							<div id="ContentThree"></div>
+							<div id="PageNumberThree"></div>
+						</div>
+						<div id="Four" class="layui-tab-item">
+							<div id="ContentFour"></div>
+							<div id="PageNumberFour"></div>
+						</div>
+						<div id="Five" class="layui-tab-item">
+							<div id="ContentFive"></div>
+							<div id="PageNumberFive"></div>
+						</div>
+						<div id="Six" class="layui-tab-item">
+							<div id="ContentSix"></div>
+							<div id="PageNumberSix"></div>	
+						</div>
+					</div>
+				</div> 
+			</div>
+		</div>
+	</body>
+</html>

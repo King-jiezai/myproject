@@ -1,0 +1,412 @@
+img*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	background: #f3f5f8;
+}
+.curpoi{
+	cursor: pointer;
+}
+.wrapper{
+	margin: 0 auto;
+	width: 1200px;
+	padding: 10px 5px;
+	background: #FFFFFF;
+}
+.Pagetitle{
+	margin-left: 10px;
+	color: #666666;
+}
+
+/* OrderDetails 订单详情 */
+.OrDe{
+	padding: 25px 10px;
+	margin: 20px auto;
+	width: 1155px;
+	height: 60px;
+	border: #f4892d solid 1px;
+	background: #fef5e6;
+}
+.img{
+	float: left;
+	width: 60px;
+	height: 60px;
+	background: #ebebeb;
+}
+.img img{
+	width: 100%;
+	height: 100%;
+}
+.TitleMode{
+	float: left;
+	margin-left: 10px;
+	padding: 10px 5px;
+	height: 40px;
+	font-size: 12px;
+}
+.shoppingName{
+	height: 20px;
+	line-height: 20px;
+	color: #2595d3;
+}
+
+/* operation 操作 */
+.opon{
+	float: right;
+	padding: 5px 0;
+	width: 300px;
+	height: 50px;
+	font-size: 12px;
+}
+.oponTop{
+	height: 20px;
+	line-height: 20px;
+	color: #e62129;
+}
+.oponTopLf{
+	float: left;
+	margin-left: 20px;
+}
+.oponTopRg{
+	float: right;
+	margin-right: 20px;
+}
+.oponBottom{
+	margin-top: 10px;
+	height: 20px;
+	line-height: 20px;
+}
+.oponBottomLf{
+	float: left;
+	margin-left: 20px;
+	padding: 0 5px;
+	background: #E62129;
+	border-radius: 5px;
+	color: #FFFFFF;
+}
+.oponBottomRg{
+	float: right;
+	margin-right: 20px;
+	height: 20px;
+	line-height: 20px;
+}
+
+/* 退款信息 */
+.reIn{
+	padding: 0 10px;
+	margin: 20px auto;
+	width: 1155px;
+	height: 100px;
+}
+.reInTitle{
+	font-size: 14px;
+	color: #333333;
+}
+.reInLf{
+	float: left;
+	margin-top: 6px;
+	padding: 5px 10px;
+	width: 365px;
+	height: 50px;
+	font-size: 12px;
+	color: #666666;
+}
+.reInLfTop{
+	height: 25px;
+	line-height: 25px;
+}
+.reInLfTop span{
+	color: #2595d3;
+}
+.reInLfBottom{
+	height: 25px;
+	line-height: 25px;
+}
+.reInCt{
+	float: left;
+	margin-top: 6px;
+	padding: 5px 10px;
+	width: 365px;
+	height: 50px;
+	font-size: 12px;
+	color: #666666;
+}
+.reInCtTop{
+	height: 25px;
+	line-height: 25px;
+}
+.reInCtBottom{
+	height: 25px;
+	line-height: 25px;
+}
+.reInRg{
+	float: right;
+	margin-top: 6px;
+	padding: 5px 10px;
+	width: 365px;
+	height: 50px;
+	font-size: 12px;
+	color: #666666;
+}
+.reInRgTop{
+	height: 25px;
+	line-height: 25px;
+}
+.reInRgBottom{
+	height: 25px;
+	line-height: 25px;
+}
+
+/* Message Board 留言板 */
+.meBo{
+	padding: 5px 10px;
+	margin: 0 auto;
+	width: 1155px;
+	height: 360px;
+	overflow: hidden;
+}
+.meBoTitle{
+	font-size: 14px;
+	color: #333333;
+}
+.meBoContents {
+	width: 1155px;
+	height: 300px;
+	overflow-y: auto;
+}
+.meBoContent{
+	width: 100%;
+	font-size: 12px;
+	height: 120px;
+	display: flex;
+}
+.meBonav {
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+}
+.meBonav p {
+	text-align: center;
+}
+.meBonav p:nth-child(1) {
+	float: left;
+	width: 50px;
+}
+.meBonav p:nth-child(2) {
+	float: left;
+	width: 305px;
+}
+.meBonav p:nth-child(3) {
+	float: left;
+	width: 105px;
+}
+.meBonav p:nth-child(4) {
+	float: right;
+	width: 585px;
+}
+.meBoimg img {
+	width: 30px;
+	height: 30px;
+}
+.meBoCoLf{
+	width: 305px;
+	height: 120px;
+	line-height: 120px;
+	color: #666666;
+	text-align: center;
+}
+.meBoName {
+	width: 105px;
+	height: 120px;
+	line-height: 120px;
+	color: #666666;
+	text-align: center;
+}
+.meBoCoRg {
+	width: 585px;
+	margin-left: 110px;
+	text-align: center;
+}
+.meBoCoCt {
+	width: 50px;
+	height: 120px;
+	line-height: 120px;
+	color: #e62129;
+	text-align: center;
+}
+.meBop {
+	padding-top: 50px;
+}
+
+/* Refund processing 退款处理 */
+.rePr{
+	padding: 5px 0;
+	margin: 20px auto;
+	width: 1155px;
+}
+.rePrTitle{
+	padding-left: 10px;
+	border-left: #2595d3 solid 2px;
+	color: #2595d3;
+	font-size: 16px;
+}
+/* schedule 进度条 */
+.rePrSc{
+	margin: 10px auto;
+	width: 768px;
+	height: 33px;
+	color: #FFFFFF;
+	font-size: 15px;
+	text-align: center;
+	line-height: 33px;
+}
+.ScOne{
+	float: left;
+	width: 256px;
+	height: 33px;
+	background: url(../../img/blue_1.png) no-repeat 100% 100%;
+}
+.ScTwo{
+	float: left;
+	width: 256px;
+	height: 33px;
+	background: #00F7DE;
+	background: url(../../img/blue_2.png) no-repeat 100% 100%;
+}
+.ScThree{
+	float: left;
+	width: 256px;
+	height: 33px;
+	background: #009688;
+	background: url(../../img/blue_3.png) no-repeat 100% 100%;
+}
+
+/* 处理 */
+.handle{
+	margin: 0 auto;
+	width: 1177px;
+	height: 470px;
+	border: #ebebeb solid 1px;
+}
+.handleLf{
+	float: left;
+	padding-top: 20px;
+	padding-left: 20px;
+	width: 657.5px;
+	height: 450px;
+	border-right: #ebebeb solid 1px;
+}
+.handleLf p:nth-child(1) {
+	font-size: 18px;
+	color: #999999;
+}
+.handleLf p:nth-child(2) {
+	font-size: 18px;
+	color: #999999;
+	margin:10px 0;
+}
+.handleLf p:nth-child(3) {
+	font-size: 18px;
+	color: #999999;
+}
+.handleLf p:nth-child(3) span {
+	font-size: 18px;
+	color: #E60012;
+}
+.handleLf p:nth-child(4) {
+	font-size: 18px;
+	color: #999999;
+	margin-top: 10px;
+}
+.handleLf p:nth-child(4) span{
+	font-size: 18px;
+	color: #E60012;
+	margin-top: 10px;
+}
+.handleRg{
+	float: right;
+	padding-top: 20px;
+	padding-left: 20px;
+	width: 447.5px;
+}
+.haRgTitle{
+	width: 447.5px;
+	height: 40px;
+	line-height: 40px;
+	color: #333333;
+	font-size: 18px;
+}
+.orDe{
+	margin-top: 20px;
+	width: 447.5px;
+	height: 90px;
+}
+.orDeImg{
+	float: left;
+	width: 88px;
+	height: 88px;
+	border: #ebebeb solid 1px;
+}
+.orDeImg img {
+	width: 100%;
+	height: 100%;
+}
+.orDeTitle{
+	float: right;
+	width: 340.5px;
+	height: 90px;
+}
+.orDeTiTop{
+	margin-top: 25px;
+	font-size: 12px;
+	color: #333333;
+}
+.Leasehold {
+	width: 100%;
+	line-height: 20px;
+}
+.Leasehold p {
+	float: left;
+}
+.orDeTiBottom{
+	float: left;
+	font-size: 12px;
+	color: #333333;
+}
+.orDeTiBottoms{
+	float: left;
+	font-size: 12px;
+	color: #333333;
+}
+.orDeTitle span {
+	float: left;
+	margin: 0 5px;
+}
+.details{
+	padding-top: 50px;
+	width: 447.5px;
+	height: 230px;
+}
+.detailsLf{
+	float: left;
+	margin-top: 25px;
+	width: 223.75px;
+	height: 100%;
+}
+.detailsLf div{
+	font-size: 12px;
+	height: 25px;
+	color: #666666;
+}
+.detailsRg{
+	float: right;
+	margin-top: 25px;
+	width: 223.75px;
+	height: 100%;
+}
+.detailsRg div{
+	font-size: 12px;
+	height: 25px;
+	color: #666666;
+}
